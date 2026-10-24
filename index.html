@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Processo Reclame Aqui</title>
+<style>
+:root{
+  --azul:#0055FF; --navy:#080E32; --coral:#FC6058;
+  --bg:#F6F8FC; --card:#FFFFFF; --linha:#E3E8F2; --texto:#1B2240; --suave:#5B6380;
+  --verde:#0E8A5F; --verde-bg:#E7F6EF; --verm-bg:#FDECEA; --amar:#9A6A00; --amar-bg:#FFF6DD; --azul-bg:#EAF1FF;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--texto);font:15px/1.55 -apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+header.topo{background:var(--navy);color:#fff;padding:32px 16px 28px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+header.topo .wrap{padding:0}
+header h1{margin:0 0 6px;font-size:28px;letter-spacing:-.3px}
+header p{margin:0;color:#C8D1EE;font-size:14px}
+header .fontes{margin-top:12px;font-size:13px;color:#AEB8DA}
+nav.menu{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--linha)}
+nav.menu .wrap{display:flex;gap:4px;overflow-x:auto;padding:8px 16px}
+nav.menu a{white-space:nowrap;text-decoration:none;color:var(--suave);font-size:13px;font-weight:600;padding:6px 10px;border-radius:6px}
+nav.menu a:hover{background:var(--azul-bg);color:var(--azul)}
+main{padding:24px 0 60px}
+section{margin:0 0 36px}
+h2{font-size:21px;margin:0 0 4px;color:var(--navy)}
+h2 .n{color:var(--azul);margin-right:6px}
+.sub{color:var(--suave);margin:0 0 16px;font-size:14px}
+h3{font-size:16px;margin:22px 0 10px;color:var(--navy)}
+.card{background:var(--card);border:1px solid var(--linha);border-radius:10px;padding:18px}
+.aviso{background:var(--amar-bg);border:1px solid #F1DFA6;border-radius:10px;padding:14px 16px;font-size:14px;margin-bottom:20px}
+.aviso b{color:var(--amar)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:16px}
+.kpi{background:#fff;border:1px solid var(--linha);border-radius:10px;padding:14px 16px}
+.kpi .v{font-size:30px;font-weight:700;color:var(--navy);line-height:1.1}
+.kpi .v.coral{color:var(--coral)}
+.kpi .l{font-size:13px;color:var(--suave);margin-top:4px}
+.tabela{overflow-x:auto;background:#fff;border:1px solid var(--linha);border-radius:10px}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--linha)}
+th{background:#F0F3FA;color:var(--navy);font-size:12.5px;text-transform:uppercase;letter-spacing:.3px;position:sticky;top:0}
+tr:last-child td{border-bottom:0}
+td.tema{font-weight:600;color:var(--navy);min-width:170px}
+.tag{display:inline-block;font-size:12px;font-weight:600;padding:2px 8px;border-radius:999px;margin:1px 2px 1px 0}
+.t-franq{background:#FFE9E6;color:#B33A2B}
+.t-nossa{background:var(--azul-bg);color:var(--azul)}
+.t-cli{background:#EEF0F5;color:#4A5272}
+.t-jur{background:#F2E9FF;color:#6B3FB8}
+.nota{font-weight:700}
+.nota.ruim{color:#C0392B}.nota.med{color:var(--amar)}.nota.boa{color:var(--verde)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:760px){.grid2{grid-template-columns:1fr}header h1{font-size:23px}}
+.pode{border-left:4px solid var(--verde)}
+.naopode{border-left:4px solid var(--coral)}
+.pode h3{color:var(--verde);margin-top:0}
+.naopode h3{color:#C0392B;margin-top:0}
+ul{margin:6px 0;padding-left:20px}
+li{margin:4px 0}
+ol.fluxo{counter-reset:p;list-style:none;padding:0;margin:0}
+ol.fluxo li{counter-increment:p;position:relative;padding:10px 12px 10px 48px;background:#fff;border:1px solid var(--linha);border-radius:8px;margin-bottom:8px}
+ol.fluxo li::before{content:counter(p);position:absolute;left:12px;top:10px;width:24px;height:24px;border-radius:50%;background:var(--azul);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.escada{display:flex;flex-direction:column;gap:6px}
+.degrau{display:grid;grid-template-columns:230px 1fr;gap:12px;background:#fff;border:1px solid var(--linha);border-radius:8px;padding:10px 12px;align-items:start}
+.degrau b{color:var(--navy)}
+@media (max-width:640px){.degrau{grid-template-columns:1fr;gap:2px}}
+details.modelo{background:#fff;border:1px solid var(--linha);border-radius:8px;margin-bottom:8px}
+details.modelo summary{cursor:pointer;padding:12px 14px;font-weight:600;color:var(--navy);list-style:none;display:flex;justify-content:space-between;gap:8px}
+details.modelo summary::after{content:"▾";color:var(--suave)}
+details.modelo[open] summary::after{content:"▴"}
+details.modelo .corpo{padding:0 14px 14px}
+.quote{background:#F4F7FF;border-left:3px solid var(--azul);padding:12px 14px;border-radius:6px;white-space:pre-wrap;font-size:14.5px}
+.quando{font-size:13px;color:var(--suave);margin:0 0 8px}
+button.copiar{margin-top:8px;border:1px solid var(--azul);background:#fff;color:var(--azul);border-radius:6px;padding:5px 12px;font-size:13px;font-weight:600;cursor:pointer}
+button.copiar:hover{background:var(--azul);color:#fff}
+.filtros{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.filtros input{flex:1;min-width:200px;padding:8px 12px;border:1px solid var(--linha);border-radius:8px;font-size:14px}
+.pendencias li{margin:8px 0}
+.small{font-size:13px;color:var(--suave)}
+footer{color:var(--suave);font-size:12.5px;text-align:center;padding:20px 16px 40px}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="wrap">
+    <h1>Processo Reclame Aqui: mapeamento</h1>
+    <p>Casos que se repetem, matriz de resposta, variações, descontos e reembolsos, exceções aplicadas, SLA e tipo de contato. Hóspedes e Proprietários.</p>
+    <div class="fontes">Fontes: “Reclame Aqui – Hóspedes (abr-out 2026)” (Vanessa Benigno e Thamyres Oliveira; 65 reclamações de 01/04 a 15/10) e “Reclame Aqui – Levantamento Proprietários (abr-out 2026)” (Raquel Magnaguagno; 27 reclamações de 19/04 a 19/10). Consolidado em 23/10/2026.</div>
+  </div>
+</header>
+
+<nav class="menu"><div class="wrap">
+  <a href="#visao">1. Visão geral</a>
+  <a href="#fluxo">2. Fluxo, SLA e contato</a>
+  <a href="#hospedes">3. Matriz Hóspedes</a>
+  <a href="#proprietarios">4. Matriz Proprietários</a>
+  <a href="#compensacao">5. Reembolso, desconto e cupom</a>
+  <a href="#excecoes">6. Exceções</a>
+  <a href="#resposta">7. Resposta pública</a>
+  <a href="#modelos">8. Modelos</a>
+  <a href="#moderacao">9. Moderação</a>
+  <a href="#pendencias">10. Lacunas e decisões</a>
+</div></nav>
+
+<main class="wrap">
+
+<div class="aviso"><b>Como ler:</b> não existe régua oficial de reembolso nem de cupom. Os percentuais e valores aqui são <b>o que foi praticado</b> caso a caso no período, não política aprovada. Os modelos de resposta da seção 8 foram redigidos a partir das regras de “pode / não pode” dos relatórios e <b>precisam de validação</b> antes de virar padrão. A classificação dos 65 casos de hóspede ainda não foi validada com o time, e os valores não foram cruzados com o Sapron.</div>
+
+<!-- 1 -->
+<section id="visao">
+  <h2><span class="n">1.</span>Visão geral</h2>
+  <p class="sub">O tamanho do problema nos dois públicos.</p>
+  <div class="kpis">
+    <div class="kpi"><div class="v">65</div><div class="l">reclamações de hóspede no RA (01/04 a 15/10)</div></div>
+    <div class="kpi"><div class="v">50</div><div class="l">delas com causa evitável na raiz</div></div>
+    <div class="kpi"><div class="v">27</div><div class="l">reclamações de proprietário (20 proprietários; 10 vêm de só 4 imóveis)</div></div>
+    <div class="kpi"><div class="v coral">0,0</div><div class="l">nota média em cancelamento pela Seazone (2 avaliações): o pior tema</div></div>
+    <div class="kpi"><div class="v">2 de 10</div><div class="l">exceções concedidas que reverteram a nota</div></div>
+    <div class="kpi"><div class="v coral">2</div><div class="l">ocorrências registradas no canal, contra até 24 casos de hóspede que podem caber na régua v2</div></div>
+  </div>
+  <div class="grid2">
+    <div class="card">
+      <h3 style="margin-top:0">Hóspedes</h3>
+      <ul>
+        <li>Metade nasce <b>na entrada</b>: 32 de 65 são check-in, limpeza ou manutenção na chegada.</li>
+        <li>Responsável principal: <b>Franquia (33)</b>, Anúncios (14), Política comercial (11), Reservas (11).</li>
+        <li>Nota média por desfecho: resolvido sem dinheiro <b>7,4</b> · exceção à política <b>5,4</b> · reembolso devido por falha nossa <b>3,3</b>.</li>
+        <li>A exceção concedida <b>depois</b> do RA não recupera a nota.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">Proprietários</h3>
+      <ul>
+        <li>Mais da metade é <b>falha nossa</b> de processo ou execução: estadia mínima, anúncio derrubado, implantação parada, demora no retorno.</li>
+        <li>O outro bloco é proprietário em <b>distrato ou churn</b>, que desabafa ou pressiona cobranças fora do contrato.</li>
+        <li>Compensações pontuais e baixas (até R$ 500), <b>nunca detalhadas em público</b>.</li>
+        <li>Imóveis recorrentes: DOI0203 (3x), ZNB1203 (3x), VLL0001 (2x), CCF1409 (2x).</li>
+      </ul>
+    </div>
+  </div>
+  <p class="small" style="margin-top:12px">Queixa que aparece em todos os temas, nos dois públicos: <b>“ninguém responde” / “só a IA responde”</b>. O canal do proprietário (SIA/WhatsApp) foi chamado de lento em pelo menos 9 reclamações.</p>
+</section>
+
+<!-- 2 -->
+<section id="fluxo">
+  <h2><span class="n">2.</span>Fluxo padrão, SLA e tipo de contato</h2>
+  <p class="sub">O processo que já é seguido hoje. Os dois relatórios pedem que ele seja confirmado na cadência.</p>
+  <ol class="fluxo">
+    <li><b>Entrada:</b> a reclamação chega pelo webhook como “Nova reclamação” no Slack <b>#respostas-reclame-aqui</b>.</li>
+    <li><b>Dono do caso:</b> analista de Hóspedes (Thamys, Vanessa ou Nath) ou CS Proprietários. Implantação, distrato e pós-churn de proprietário ainda <b>não têm dono definido</b>.</li>
+    <li><b>Contato privado ANTES da resposta pública:</b> ligação ou WhatsApp. É o tipo de contato esperado nos dois públicos.</li>
+    <li><b>Resolver primeiro, responder depois.</b> Se o prazo apertar, ou se o hóspede sumir numa estadia longa, publica-se uma resposta genérica (“estamos em contato e dando suporte”), completada depois.</li>
+    <li><b>Mostrar evidência</b> quando houver (vídeo, comprovante, fotos). Foi isso que transformou reclamação em avaliação positiva (ELU0211).</li>
+    <li><b>Resposta pública</b> seguindo a matriz da seção 7.</li>
+    <li><b>Jurídico antes de publicar</b> quando houver Procon, processo, notificação ou acusação grave (furto, calúnia).</li>
+    <li><b>Mesma reclamação em outro canal</b> (Google): segurar a resposta e coordenar (NWT0709).</li>
+    <li><b>Réplica:</b> responder toda réplica no prazo do RA. Ainda <b>a confirmar</b>: em 21/07 e 13/08 réplicas ficaram sem resposta.</li>
+    <li><b>Cliente satisfeito:</b> pedir avaliação. <b>Nunca</b> pedir exclusão ou desativação.</li>
+    <li><b>Falha de franquia:</b> abrir ocorrência pela régua v2 <b>mesmo com o hóspede satisfeito</b>. Isso é proposta; hoje quase não acontece.</li>
+  </ol>
+
+  <h3>SLA: o que os relatórios dizem</h3>
+  <div class="tabela"><table>
+    <tr><th>Item</th><th>Prazo</th><th>Situação</th></tr>
+    <tr><td>Resposta pública</td><td>Dentro do mês (impacta a nota)</td><td>Prática atual (Proprietários)</td></tr>
+    <tr><td>Réplica</td><td>No prazo do RA</td><td>Proposta: confirmar com a Nath</td></tr>
+    <tr><td>1º contato pelo botão “fale com a empresa”</td><td>4h úteis (contra as 24h do RA)</td><td>Proposta: decisão pendente</td></tr>
+    <tr><td>Contato com o hóspede antes da chegada</td><td>24h antes do check-in + vistoria antes</td><td>Proposta: hoje ninguém faz</td></tr>
+  </table></div>
+</section>
+
+<!-- 3 -->
+<section id="hospedes">
+  <h2><span class="n">3.</span>Matriz por tipo de reclamação: Hóspedes</h2>
+  <p class="sub">Frequência (levantamento da Thamys, n=65), nota média no RA, responsável, o que fazer, compensação praticada e variações.</p>
+  <div class="filtros"><input type="search" id="fH" placeholder="Filtrar (ex.: limpeza, 15%, integral, ocorrência)…" oninput="filtrar('fH','tH')"></div>
+  <div class="tabela"><table id="tH">
+    <tr><th>Tema</th><th>Qtde · nota</th><th>Responsável</th><th>O que fazer (padrão que funcionou)</th><th>Compensação praticada</th><th>Variações e exceções</th></tr>
+    <tr><td class="tema">Limpeza / enxoval na entrada</td><td>11 · <span class="nota boa">9,4</span></td><td><span class="tag t-franq">Franquia</span></td><td>Ligar, mandar nova limpeza ou trocar o enxoval na hora.</td><td>Estorno da limpeza, às vezes com +10%. <b>Valor descontado da franquia.</b></td><td>MYO0312: limpeza + 10% + nova limpeza. Cabana de pedra (19/07): estorno da limpeza via Booking + 20% ofertado, sem aceite. <b>Abrir ocorrência.</b></td></tr>
+    <tr><td class="tema">Check-in / acesso</td><td>11 · <span class="nota med">6,6</span></td><td><span class="tag t-franq">Franquia</span><span class="tag t-nossa">Cadastro</span></td><td>Resolver o acesso. Se a unidade não foi usada, reembolso integral.</td><td>Integral (28/04 por exceção; 02/09 pago pela Seazone via PIX porque a Booking não respondeu).</td><td>Causas: pré check-in incompleto, telefone errado na OTA ou na Stays, anfitrião que só fala no dia. <b>Não culpar o hóspede pelo pré check-in</b> na resposta.</td></tr>
+    <tr><td class="tema">Manutenção / estrutura</td><td>10 · <span class="nota med">5,9</span></td><td><span class="tag t-franq">Franquia</span></td><td>Mandar a manutenção. Desconto proporcional ao impacto.</td><td>15% (chuveiro/boiler, Gramado) · 25% (baratas, após ameaça de Procon) · estorno parcial da diária impactada (Chalé 9) · cupom (13/07).</td><td>Integral negado no Chalé 9. Desconto que subiu em degraus (15%→25%). <b>Ocorrência.</b></td></tr>
+    <tr><td class="tema">Cancelamento pelo hóspede (política)</td><td>11 · <span class="nota med">6,0</span></td><td><span class="tag t-cli">Hóspede / política comercial</span></td><td>Manter a política e oferecer troca de datas.</td><td>Nenhuma, como regra.</td><td><b>5 exceções concedidas só depois do RA</b> (ver seção 6). Previsão de chuva: só troca de datas. Imprevisto ou cancelamento perto da data: política mantida.</td></tr>
+    <tr><td class="tema">Cancelamento / realocação pela Seazone</td><td>8 · <span class="nota ruim">0,0</span></td><td><span class="tag t-franq">Franquia</span><span class="tag t-nossa">Proprietário / imprevisto</span></td><td>Estorno integral + realocação.</td><td>Integral + nova hospedagem com ajustes (NLUG0001/NZ359J) · reembolso parcial (PSO0610) · solução no privado após recusa de 20% + check-out antecipado (22/09).</td><td>Gasto do hóspede em outra acomodação: <b>negado</b> (NWT0709, R$ 2.218,50; o reembolso fica com a Booking). Sugestão: cobrar do proprietário quando a causa for dele.</td></tr>
+    <tr><td class="tema">Anúncio diferente da realidade</td><td>8 · <span class="nota med">5,4</span></td><td><span class="tag t-nossa">Anúncios</span></td><td>Reanalisar o anúncio. Com diferença confirmada: desconto ou reembolso parcial + correção do anúncio.</td><td>1 diária extra no lugar dos 15% (obra, Studio Vêneto) · só 1 diária cobrada + R$ 250 de limpeza (Jurerê) · 23%→30% recusados, depois reembolso parcial (Il Campanario) · enxoval completado + desconto (Salvador).</td><td>Negado quando o anúncio estava certo (SKL1204, Chalé 11, Itapema). <b>Padrão: prédio com várias unidades</b> (Jurerê, SKL1204, Itapema, Salvador, provável PSO0610).</td></tr>
+    <tr><td class="tema">Atendimento / pós-venda</td><td>6 · <span class="nota med">6,6</span></td><td><span class="tag t-nossa">Reservas / atendimento</span></td><td>Reconhecer a demora e resolver o pedido.</td><td>Em geral nenhuma.</td><td>Bot informou check-out às 11h com late até 17h contratado (01/04); atendimentos que sumiam (20/07); resposta “curta e grossa” (Chalé 11).</td></tr>
+    <tr><td class="tema">Cobrança de dano</td><td>–</td><td>Varia</td><td>Rever a cobrança.</td><td>MDC0214: lençol cancelado por exceção.</td><td>—</td></tr>
+    <tr><td class="tema">Nota fiscal</td><td>–</td><td>—</td><td>Enviar recibo.</td><td>Nenhuma.</td><td>Não emitimos NF-e para hospedagem de pessoa física (30/06).</td></tr>
+    <tr><td class="tema">Objeto esquecido</td><td>–</td><td><span class="tag t-franq">Anfitriã local</span></td><td>O frete fica com o hóspede (regra das plataformas).</td><td>Nenhuma.</td><td>A demora e a promessa não cumprida da anfitriã não viraram ocorrência (13/08, Meia Praia).</td></tr>
+    <tr><td class="tema">Caso antigo / via judicial</td><td>–</td><td><span class="tag t-jur">Jurídico</span></td><td>Negar e encaminhar ao jurídico.</td><td>Nenhuma.</td><td>02/04: R$ 799,68 a mais negados (reserva de ago/2025).</td></tr>
+  </table></div>
+
+  <h3>Locais com mais de uma reclamação</h3>
+  <div class="tabela"><table>
+    <tr><th>Região / empreendimento</th><th>Casos</th><th>Datas</th></tr>
+    <tr><td>Salvador</td><td>4</td><td>05/05, 29/05, 21/07, 08/08</td></tr>
+    <tr><td>Campos do Jordão / Cabana de Pedra</td><td>3</td><td>19/07, 30/07 (Chalés Naturale), 19/09 (Chalé 11)</td></tr>
+    <tr><td>Jurerê</td><td>3</td><td>01/04, 19/05, 24/08</td></tr>
+    <tr><td>NWT / Maceió</td><td>3</td><td>06/07, 22/07, 23/07</td></tr>
+  </table></div>
+</section>
+
+<!-- 4 -->
+<section id="proprietarios">
+  <h2><span class="n">4.</span>Matriz por tipo de reclamação: Proprietários</h2>
+  <p class="sub">Tema principal de cada caso (n=27). Vários casos se encaixam em mais de um tema.</p>
+  <div class="filtros"><input type="search" id="fP" placeholder="Filtrar (ex.: implantação, R$ 500, contrato)…" oninput="filtrar('fP','tP')"></div>
+  <div class="tabela"><table id="tP">
+    <tr><th>Tema</th><th>Qtde</th><th>Culpa nossa?</th><th>O que fazer</th><th>Compensação praticada</th><th>Variações e exceções</th></tr>
+    <tr><td class="tema">Financeiro: repasse, multa de cancelamento, taxa de limpeza, caução, faxina 2x, condomínio</td><td>8</td><td>Em parte</td><td>Ligação prioritária, revisão dos lançamentos, envio de comprovantes.</td><td>Caução de R$ 500 adiada para o mês seguinte (SAA0623) · faxina duplicada excluída (ERW0301) · cobrança de R$ 475 cancelada de forma conciliatória (CCF1409).</td><td><b>Negado</b> fora do contrato: multa de condomínio causada por hóspede (RCQ0305, R$ 1.524,78); contas depois do fim da gestão (BRE0116, aditivo assinado). ARE1502 (multa de R$ 827,50): desfecho não registrado.</td></tr>
+    <tr><td class="tema">Pedido operacional não executado (estadia mínima, anúncio fora do ar)</td><td>5</td><td><span class="tag t-nossa">Sim</span></td><td>Ajuste com prioridade. Anúncio reativado ou refeito do zero.</td><td>Nenhuma em dinheiro.</td><td>DOI0203: 3 reclamações pelo mesmo problema (sobreposição de suportes). <b>Causa de processo.</b> VLL0001: anúncio derrubado pelo Airbnb sem ninguém perceber.</td></tr>
+    <tr><td class="tema">Implantação: demora, franquia recusa o imóvel, taxa</td><td>6</td><td><span class="tag t-nossa">Na maioria</span></td><td>Outra franquia assume (SAU0316). A franquia conversa direto com o proprietário (Barra Velha).</td><td>Estorno da taxa de implantação, até sem direito (CCF1409, ZNB1203).</td><td>Tema novo desde maio. O dono do caso está indefinido entre CS, Implantação e Franquias.</td></tr>
+    <tr><td class="tema">Danos, manutenção e vistoria</td><td>5</td><td>Raramente</td><td>Repor só o que é dano comprovado.</td><td>R$ 250 de conserto do guarda-roupa (ERW0301) · torneira e espremedor repostos (VTD0316).</td><td>Pintura / desgaste natural: <b>negado</b> (VTD0316, validado pelo jurídico). Geladeira por falha elétrica do imóvel: negado (IDB0701, no jurídico).</td></tr>
+    <tr><td class="tema">Enxoval e limpeza</td><td>3</td><td>Em parte</td><td>Ligar e <b>mostrar evidência</b> (vídeo, enxoval mostrado pessoalmente).</td><td>Nenhuma, ou devolução adiantada do enxoval + varal instalado (EFA0304).</td><td>ELU0211 virou avaliação <b>positiva</b> sem dinheiro.</td></tr>
+    <tr><td class="tema">Desabafo pós-distrato</td><td>3</td><td><span class="tag t-cli">Não</span></td><td>Tentar contato. Resposta curta e genérica.</td><td>Nenhuma.</td><td>Sem pedido concreto (CSF0303, Caio, IDB0701). Proprietário pós-churn não tem dono claro.</td></tr>
+    <tr><td class="tema">Lead sem retorno do comercial</td><td>1</td><td><span class="tag t-nossa">Sim</span></td><td>O Comercial retoma o contato.</td><td>—</td><td>Não afirmar nada que o Comercial desminta (“a Seazone não liga para clientes”, 20/08).</td></tr>
+  </table></div>
+</section>
+
+<!-- 5 -->
+<section id="compensacao">
+  <h2><span class="n">5.</span>Reembolso, desconto e cupom: o que foi praticado</h2>
+  <p class="sub">Não é régua aprovada. É a escada que apareceu nos casos, do menor para o maior.</p>
+  <h3>Hóspede</h3>
+  <div class="escada">
+    <div class="degrau"><b>Estorno só da limpeza</b><span>Enxoval ou limpeza com falha. Normalmente descontado da franquia.</span></div>
+    <div class="degrau"><b>10% + limpeza</b><span>Limpeza ruim com estadia mantida (08/04: R$ 247 descontados da franquia; MYO0312).</span></div>
+    <div class="degrau"><b>15%</b><span>Manutenção pontual (chuveiro/boiler). Primeira oferta típica.</span></div>
+    <div class="degrau"><b>1 diária extra</b><span>No lugar dos 15% (obra sem aviso, Studio Vêneto). <b>Funcionou bem.</b></span></div>
+    <div class="degrau"><b>20%</b><span>Realocação ruim, enxoval manchado. Costuma ser recusado.</span></div>
+    <div class="degrau"><b>23% a 30%</b><span>Anúncio muito diferente da realidade (Il Campanario). Recusado; fechou em reembolso parcial.</span></div>
+    <div class="degrau"><b>Reembolso parcial da diária</b><span>Item do anúncio faltando (Chalé 9), unidade inferior à paga (PSO0610).</span></div>
+    <div class="degrau"><b>Reembolso integral</b><span>Unidade não usada (sem acesso, QR code) ou cancelamento pela Seazone.</span></div>
+    <div class="degrau"><b>Crédito / cupom para reserva futura</b><span>Pets (07/09), sujeira + manutenção (13/07). <b>Pouco usado ou recusado</b> (caso Maratona).</span></div>
+  </div>
+  <div class="aviso" style="margin-top:14px"><b>Problema de padrão:</b> o desconto subiu em degraus (15%→25% em 11/04; 23%→30% em 24/08) e o acordo só fechou depois de pressão. O relatório recomenda <b>definir a oferta por tema já na 1ª proposta</b>.</div>
+  <h3>Proprietário</h3>
+  <ul>
+    <li>Compensação pontual, <b>até R$ 500</b>, ou estorno da taxa de implantação.</li>
+    <li>Sempre ligada a falha nossa ou a cobrança que dava margem a dúvida.</li>
+    <li><b>Nunca detalhada na resposta pública</b>: na SAA0623, a menção à caução adiada foi retirada.</li>
+  </ul>
+  <h3>Quem paga</h3>
+  <ul>
+    <li><b>Falha da franquia:</b> o estorno foi descontado dela (08/04, MYO0312).</li>
+    <li><b>Causa do proprietário</b> (ex.: cancelamento a pedido dele): sugestão da Iara de cobrar dele. Ainda não é regra.</li>
+    <li><b>OTA travou o reembolso:</b> a Seazone pagou via PIX para resolver (02/09).</li>
+  </ul>
+</section>
+
+<!-- 6 -->
+<section id="excecoes">
+  <h2><span class="n">6.</span>Exceções aplicadas</h2>
+  <p class="sub">Casos em que se saiu da política ou do contrato.</p>
+  <div class="tabela"><table>
+    <tr><th>Caso</th><th>Público</th><th>Motivo</th><th>Exceção concedida</th><th>Momento</th></tr>
+    <tr><td>24/06 (Airbnb)</td><td>Hóspede</td><td>Cancelou 20 min após reservar</td><td>Reembolso integral pelo Airbnb</td><td>Negada no 1º contato, concedida após o RA</td></tr>
+    <tr><td>MK475J</td><td>Hóspede</td><td>Cancelamento</td><td>Condicionada a nova reserva</td><td>Após o RA</td></tr>
+    <tr><td>22/07</td><td>Hóspede</td><td>Doença</td><td>Exceção à política</td><td>Após o RA</td></tr>
+    <tr><td>07/09</td><td>Hóspede</td><td>Pets</td><td>Crédito para reserva futura (resposta genérica de propósito)</td><td>Após o RA</td></tr>
+    <tr><td>VST026 / PR1385J</td><td>Hóspede</td><td>Falecimento de familiar</td><td>Valor pago preservado (R$ 1.007,20)</td><td>Após o RA</td></tr>
+    <tr><td>05/10</td><td>Hóspede</td><td>Remarcação com atestado</td><td>Remarcação</td><td>Sem negativa anterior registrada</td></tr>
+    <tr><td>28/04</td><td>Hóspede</td><td>Sem acesso (pré check-in + telefone errado)</td><td>Cancelamento com reembolso integral</td><td>—</td></tr>
+    <tr><td>MDC0214</td><td>Hóspede</td><td>Cobrança de lençol danificado</td><td>Cobrança cancelada</td><td>—</td></tr>
+    <tr><td>Jurerê (01/04)</td><td>Hóspede</td><td>4 hóspedes em unidade para 2</td><td>Só 1 diária cobrada + estorno da limpeza</td><td>—</td></tr>
+    <tr><td>SAA0623</td><td>Proprietário</td><td>Caução descontada sem aviso</td><td>Desconto adiado para o mês seguinte (R$ 500)</td><td>—</td></tr>
+    <tr><td>CCF1409</td><td>Proprietário</td><td>Churn na implantação</td><td>Taxa de implantação devolvida sem direito + R$ 475 cancelados</td><td>Reclamou de novo; caso com o jurídico</td></tr>
+    <tr><td>ZNB1203</td><td>Proprietário</td><td>Implantação</td><td>Distrato + estorno da taxa de implantação</td><td>3 reclamações desativadas</td></tr>
+  </table></div>
+  <p class="small">Não são exceção: 04/05 (reembolso aprovado pelo suporte do Airbnb) e 11/09 (reembolso “do valor devido, conforme o CDC”). Critérios diferem entre as fontes: o canal marca 17 casos como exceção e 33 com algum valor ou benefício; a Thamys conta 10 exceções concedidas.</p>
+</section>
+
+<!-- 7 -->
+<section id="resposta">
+  <h2><span class="n">7.</span>Resposta pública: pode e não pode</h2>
+  <p class="sub">Vale para os dois públicos.</p>
+  <div class="grid2">
+    <div class="card pode">
+      <h3>✅ Pode / deve</h3>
+      <ul>
+        <li>“Após contato direto…” / “conforme conversado com você”, mais o desfecho de forma genérica.</li>
+        <li>Dizer o <i>tipo</i> de solução: reembolso integral ou parcial, desconto, troca de datas, reembolso pela plataforma.</li>
+        <li>Reconhecer a falha quando existiu: “a informação de capacidade estava errada”, “o retorno não foi ágil”, “erro de configuração”.</li>
+        <li>Citar política ou contrato de forma genérica: “conforme previsto em contrato”, “a política informada na contratação”.</li>
+        <li>Citar evidência de forma genérica: “encaminhamos os comprovantes”.</li>
+        <li>Explicar o que é da OTA: o reembolso segue a regra e o prazo da plataforma.</li>
+        <li>Explicar o fato sem culpar: “o acesso depende do pré check-in completo; reforçamos esse aviso”.</li>
+        <li>Mostrar o que mudou: “anúncio corrigido”, “feedback passado à gestão do imóvel”.</li>
+        <li>Responder toda réplica dentro do prazo do RA.</li>
+      </ul>
+    </div>
+    <div class="card naopode">
+      <h3>⛔ Não pode</h3>
+      <ul>
+        <li>Detalhar valor, percentual, crédito ou “exceção” e o motivo. Vira precedente e ensina o caminho do RA (orientação do jurídico).</li>
+        <li>Culpar o hóspede. Nas duas vezes em que aconteceu, a nota foi 3 e 4.</li>
+        <li>Citar o nome do cliente (aconteceu em 7 ou mais respostas).</li>
+        <li>Expor ou culpar franquia, anfitrião ou fornecedor pelo nome.</li>
+        <li>Mostrar valores de repasse, dados pessoais ou detalhes do contrato do proprietário.</li>
+        <li>Publicar com campo em branco (“concedemos um desconto de sobre as diárias”, 21/07).</li>
+        <li>Afirmar algo que outra área desmente.</li>
+        <li>Pedir desativação da reclamação em troca de solução.</li>
+        <li>Tom de confronto ou discussão de mérito com Procon, processo ou jurídico: o jurídico revisa antes.</li>
+      </ul>
+    </div>
+  </div>
+  <p class="small" style="margin-top:12px">Zona cinza a revisar (pode soar como culpar o hóspede): 04/05 (“reforça a importância do pré check-in”), 22/04 (“a visualização pode confundir”), 19/09 (“saída antecipada por decisão do hóspede”) e Itapema 10/07.</p>
+</section>
+
+<!-- 8 -->
+<section id="modelos">
+  <h2><span class="n">8.</span>Modelos de resposta por situação</h2>
+  <p class="sub">Redigidos a partir da matriz da seção 7. <b>Proposta para validação</b>: não são textos oficiais. Trocar o que está entre colchetes.</p>
+
+  <details class="modelo"><summary>A. Falha nossa resolvida (limpeza, manutenção, acesso, pedido operacional)</summary><div class="corpo">
+    <p class="quando">Hóspede ou proprietário. Usar depois que a solução estiver garantida.</p>
+    <div class="quote">Olá. Após contato direto com você, identificamos que [o imóvel não estava nas condições esperadas na entrada / a configuração solicitada não foi aplicada corretamente]. Pedimos desculpas pela experiência. A situação foi tratada e [concedemos um reembolso parcial / ajustamos o anúncio / realizamos uma nova limpeza]. O retorno foi passado à gestão do imóvel para que não se repita. Seguimos à disposição.</div>
+    <button class="copiar">Copiar</button>
+  </div></details>
+
+  <details class="modelo"><summary>B. Pedido fora da política (cancelamento pelo hóspede, chuva, imprevisto)</summary><div class="corpo">
+    <p class="quando">Política mantida. Oferecer alternativa no privado antes.</p>
+    <div class="quote">Olá. Entramos em contato com você para entender a situação. A reserva segue a política de cancelamento informada e aceita no momento da contratação, e oferecemos como alternativa a troca de datas. Entendemos o transtorno e seguimos à disposição pelos nossos canais.</div>
+    <button class="copiar">Copiar</button>
+  </div></details>
+
+  <details class="modelo"><summary>C. Exceção concedida (doença, falecimento etc.)</summary><div class="corpo">
+    <p class="quando">Nunca citar o motivo, o valor nem a palavra “exceção”.</p>
+    <div class="quote">Olá. Após contato direto com você, chegamos a uma solução para a sua reserva. Agradecemos a compreensão e seguimos à disposição.</div>
+    <button class="copiar">Copiar</button>
+  </div></details>
+
+  <details class="modelo"><summary>D. Cancelamento ou realocação pela Seazone</summary><div class="corpo">
+    <p class="quando">O tema com a pior nota. Reconhecer a falha e mostrar a correção.</p>
+    <div class="quote">Olá. Pedimos desculpas pelo cancelamento da sua reserva, ocorrido por um imprevisto no imóvel. Após contato direto, [realizamos o reembolso integral / oferecemos uma nova hospedagem]. Revisamos o processo para evitar que isso se repita.</div>
+    <button class="copiar">Copiar</button>
+  </div></details>
+
+  <details class="modelo"><summary>E. Anúncio diferente: sem diferença confirmada na reanálise</summary><div class="corpo">
+    <p class="quando">Não culpar o hóspede. Reconhecer o que de fato falhou (ex.: tempo de atendimento).</p>
+    <div class="quote">Olá. Fizemos a reanálise do anúncio e as informações publicadas correspondem ao imóvel. Reconhecemos, porém, que [nosso retorno não foi ágil] e já reforçamos isso com o time. Seguimos à disposição.</div>
+    <button class="copiar">Copiar</button>
+  </div></details>
+
+  <details class="modelo"><summary>F. Anúncio diferente: diferença confirmada</summary><div class="corpo">
+    <p class="quando">Prédio com várias unidades, aviso faltando (obra, interdição, taxa extra).</p>
+    <div class="quote">Olá. Após contato direto com você, confirmamos que [a informação sobre a unidade / o aviso sobre a obra] não estava clara no anúncio. Pedimos desculpas. A situação foi resolvida com você e o anúncio já foi corrigido. Seguimos à disposição.</div>
+    <button class="copiar">Copiar</button>
+  </div></details>
+
+  <details class="modelo"><summary>G. Reembolso pela OTA</summary><div class="corpo">
+    <p class="quando">Booking, Airbnb, Decolar etc.</p>
+    <div class="quote">Olá. O reembolso desta reserva é processado pela [plataforma], seguindo as regras e o prazo dela. Do nosso lado, [já fizemos a solicitação / prestamos o suporte necessário]. Seguimos à disposição.</div>
+    <button class="copiar">Copiar</button>
+  </div></details>
+
+  <details class="modelo"><summary>H. Resposta provisória (prazo apertando ou hóspede sem retorno)</summary><div class="corpo">
+    <p class="quando">Completar depois que o caso for resolvido.</p>
+    <div class="quote">Olá. Já estamos em contato com você e dando suporte para resolver a situação. Atualizaremos esta resposta assim que o caso for concluído.</div>
+    <button class="copiar">Copiar</button>
+  </div></details>
+
+  <details class="modelo"><summary>I. Proprietário: pedido fora do contrato</summary><div class="corpo">
+    <p class="quando">Desgaste natural, multa causada por hóspede, contas depois do fim da gestão.</p>
+    <div class="quote">Olá. Conversamos com você sobre o caso e encaminhamos os comprovantes. A situação está tratada conforme previsto em contrato. Seguimos à disposição pelo canal de atendimento ao proprietário.</div>
+    <button class="copiar">Copiar</button>
+  </div></details>
+
+  <details class="modelo"><summary>J. Desabafo pós-distrato / caso no jurídico</summary><div class="corpo">
+    <p class="quando">Resposta curta e genérica, revisada pelo jurídico antes de publicar. Sem discutir o mérito.</p>
+    <div class="quote">Olá. Lamentamos a sua experiência. Tentamos contato para entender a situação e seguimos à disposição pelos nossos canais oficiais para tratar o caso.</div>
+    <button class="copiar">Copiar</button>
+  </div></details>
+</section>
+
+<!-- 9 -->
+<section id="moderacao">
+  <h2><span class="n">9.</span>Moderação</h2>
+  <p class="sub">O RA não tem regra de moderação para pedido abusivo: pedido absurdo se trata na resposta, não na moderação.</p>
+  <div class="grid2">
+    <div class="card pode"><h3>Costuma funcionar</h3><ul>
+      <li>Duplicidade com o mesmo titular ou parente (ELU0211).</li>
+      <li>Pedido fora do contrato sem falha nossa (VTD0316, RCQ0305).</li>
+      <li>Evidência do próprio reclamante que o contradiz (Itapema, 10/07: pedido enviado).</li>
+      <li>Acusação sem fundamento já com o jurídico (CCF1409).</li>
+    </ul></div>
+    <div class="card naopode"><h3>Não funciona ou é fraco</h3><ul>
+      <li>Duplicidade com reclamantes diferentes (cônjuge, 23/07: negada e depois reaberta).</li>
+      <li>Duplicidade negada no DOI0203 (07/05).</li>
+      <li>Relato de “experiência” (IDB0701).</li>
+      <li>Pedido abusivo sem outra base.</li>
+    </ul></div>
+  </div>
+  <h3>Candidatos atuais</h3>
+  <div class="tabela"><table>
+    <tr><th>Público</th><th>Caso</th><th>Por quê</th><th>Situação</th></tr>
+    <tr><td>Proprietário</td><td>VTD0316 (05/10)</td><td>Pintura e desgaste natural, fora do contrato</td><td>Combinado na call</td></tr>
+    <tr><td>Proprietário</td><td>CCF1409 (13/05 e 31/07)</td><td>Acusação de furto sem fundamento; possível duplicidade</td><td>Com o jurídico</td></tr>
+    <tr><td>Proprietário</td><td>RCQ0305 (22/04)</td><td>Multa causada por hóspede; o contrato prevê</td><td>—</td></tr>
+    <tr><td>Proprietário</td><td>IDB0701 (18/05)</td><td>Falha elétrica do imóvel; no jurídico</td><td>Mais fraco</td></tr>
+    <tr><td>Hóspede</td><td>Itapema, 5 aptos (10/07)</td><td>Prints e vídeo da própria hóspede mostram as reservas certas</td><td>Pedido enviado</td></tr>
+    <tr><td>Hóspede</td><td>Remarcação por erro de data (23/07)</td><td>Mesmo caso já reclamado pelo cônjuge</td><td>Negada, reaberta com o manual do RA</td></tr>
+    <tr><td>Hóspede</td><td>Chalé 11 (19/09)</td><td>“Propaganda enganosa” não confirmada na reanálise</td><td>Não pedida</td></tr>
+    <tr><td>Hóspede</td><td>Avaliação retirada (09/09)</td><td>Acusa retirada de avaliação na Booking, sem prova</td><td>Não pedida; checar a regra</td></tr>
+    <tr><td>Hóspede</td><td>Reserva de ago/2025 (02/04)</td><td>Caso antigo, em via judicial</td><td>Não pedida</td></tr>
+    <tr><td>Hóspede</td><td>Cancelamento no dia (26/05)</td><td>Trecho ofensivo, já editado pelo RA</td><td>Não pedida</td></tr>
+  </table></div>
+</section>
+
+<!-- 10 -->
+<section id="pendencias">
+  <h2><span class="n">10.</span>Lacunas e decisões em aberto</h2>
+  <p class="sub">O que ainda não tem regra.</p>
+  <div class="card"><ol class="pendencias">
+    <li><b>Tabela de critérios de exceção para o 1º atendimento</b>, com documento exigido e alçada de aprovação: doença com atestado, falecimento com certidão, cancelamento até X minutos após reservar, erro de data antes do check-in. Decisão da Vic com o Comercial (dono da política comercial).</li>
+    <li><b>Oferta padrão por tema</b> já na 1ª proposta, para acabar com o desconto em degraus.</li>
+    <li><b>Oferta padrão para cancelamento pela Seazone</b> (realocação superior) e cobrança do proprietário quando a causa for dele.</li>
+    <li><b>Ocorrência para franquia:</b> criar um código novo 4.5 ou um agravante “Reclame Aqui” nos códigos 4.1 e 4.3 da régua v2? A ocorrência abre mesmo com o hóspede satisfeito, com direito de contestação.</li>
+    <li><b>Card do RA ligado à reserva e à franquia</b>, para medir a recorrência por imóvel e franquia.</li>
+    <li><b>Botão “fale com a empresa”:</b> prazo do 1º contato (proposta de 4h úteis) e qual caixa compartilhada recebe.</li>
+    <li><b>Réplica sem resposta:</b> confirmar com a Nath que toda réplica será respondida no prazo.</li>
+    <li><b>Dono do caso</b> em implantação, distrato e pós-churn de proprietário.</li>
+    <li><b>Modelos na IA:</b> a matriz atual cobre 5 de 26 situações, e 4 dos 9 exemplos são de proprietário. Faltam justamente os temas de nota mais baixa (cancelamento pela Seazone, anúncio diferente, manutenção). A Iara pediu uma matriz de objeções e limites para pedidos abusivos.</li>
+    <li><b>Causas de processo:</b> estadia mínima (DOI0203, 3x), anúncio de prédio com várias unidades (4 ou mais casos), avisos que faltam no anúncio, contato antes da chegada.</li>
+    <li><b>Dados no canal:</b> há dado pessoal de hóspede em 15 ou mais threads e uma credencial exposta. Recomendação: o webhook mascarar esses dados.</li>
+  </ol></div>
+  <h3>Encaminhamentos com dono</h3>
+  <ul>
+    <li><b>Time de RA:</b> responder os casos #67 e #68 (entraram depois do corte de 15/10).</li>
+    <li><b>Thamyres:</b> validar a classificação dos 65 casos com o time (marcado para 23/10) e cruzar os valores com o Sapron.</li>
+    <li><b>Qualidade:</b> confirmar os 15 casos de ocorrência “a confirmar” e separar confirmados, prováveis e causa externa.</li>
+  </ul>
+  <p class="small">Recomendação da Thamys: <b>caminho A</b>, ajustar o que já existe num piloto de 30 dias (card ligado à reserva e à franquia, classificador da régua, ocorrência mesmo com hóspede satisfeito, modelos dos temas de nota baixa, tabela de exceções e o botão como 2ª entrada no mesmo kanban). Critério de sucesso: 100% dos cards com a franquia ligada e ocorrência aberta em todo caso que couber.</p>
+</section>
+
+</main>
+
+<footer>Seazone · Operação · Mapeamento consolidado em 23/10/2026 a partir dos relatórios de Hóspedes e Proprietários (abr-out 2026). Documento interno.</footer>
+
+<script>
+function filtrar(inp, tab){
+  var q = document.getElementById(inp).value.toLowerCase();
+  var rows = document.getElementById(tab).querySelectorAll('tr');
+  for (var i = 1; i < rows.length; i++){
+    rows[i].style.display = rows[i].textContent.toLowerCase().indexOf(q) > -1 ? '' : 'none';
+  }
+}
+document.querySelectorAll('button.copiar').forEach(function(b){
+  b.addEventListener('click', function(){
+    var t = b.previousElementSibling.textContent;
+    var ok = function(){ b.textContent = 'Copiado ✓'; setTimeout(function(){ b.textContent = 'Copiar'; }, 1500); };
+    if (navigator.clipboard) { navigator.clipboard.writeText(t).then(ok, function(){}); }
+  });
+});
+</script>
+</body>
+</html>
