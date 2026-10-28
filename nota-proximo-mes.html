@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Nota Reclame Aqui — novembro</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: relatório de uma coluna; placar da nota no topo, cenários em tabela, os 3 casos como fichas iguais */
+:root{
+  color-scheme: light;
+  --bg:#F6F8FC; --surface:#FFFFFF; --ink:#080E32; --muted:#5A6283; --line:#DDE3F0;
+  --blue:#0055FF; --blue-soft:#E6EEFF; --coral:#FC6058; --coral-soft:#FFECEB; --green:#0F8A5F; --green-soft:#E3F5EE; --amber:#B26A00; --amber-soft:#FFF4E0;
+  --display:"Sora", "Segoe UI", system-ui, sans-serif;
+  --body:"Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --mono:"JetBrains Mono", Consolas, monospace;
+}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding-block:40px 64px;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));display:grid;gap:36px}
+h1,h2{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.2}
+h1{font-size:1.9rem}
+h2{font-size:1.25rem;margin-bottom:12px}
+p{margin:0;max-width:68ch}
+.eyebrow{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+header{display:grid;gap:10px}
+.lead{font-size:1.08rem}
+.lead strong{color:var(--blue)}
+.score{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;display:grid;gap:4px;min-width:0}
+.tile .n{font-family:var(--display);font-size:2.2rem;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.1}
+.tile .l{font-size:.92rem;color:var(--muted)}
+.tile.now .n{color:var(--ink)} .tile.risk .n{color:var(--coral)} .tile.goal .n{color:var(--green)}
+.tile.risk{border-color:var(--coral)}
+.note{font-size:.92rem;color:var(--muted)}
+.tbl{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:.95rem}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+tr:last-child td{border-bottom:0}
+td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.pill{display:inline-block;font-size:.8rem;font-weight:600;padding:2px 9px;border-radius:999px;white-space:nowrap}
+.p-ok{background:var(--green-soft);color:var(--green)} .p-bad{background:var(--coral-soft);color:#C23A33} .p-mid{background:var(--amber-soft);color:var(--amber)}
+tr.hl td{background:var(--blue-soft)}
+.cases{display:grid;gap:14px}
+.case{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;display:grid;gap:10px;min-width:0}
+.case-top{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:baseline;justify-content:space-between}
+.case h3{font-family:var(--display);font-size:1.02rem;margin:0;font-weight:600;min-width:0}
+.meta{font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+.case dl{margin:0;display:grid;grid-template-columns:150px minmax(0,1fr);gap:6px 14px}
+.case dt{font-weight:600;font-size:.9rem;color:var(--muted)}
+.case dd{margin:0}
+.pend{color:#C23A33;font-weight:600}
+a{color:var(--blue)}
+a:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+ul{margin:0;padding-left:20px;display:grid;gap:6px}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+@media (max-width:560px){.score{grid-template-columns:1fr}.case dl{grid-template-columns:1fr}.case dt{margin-top:4px}}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+<header>
+  <span class="eyebrow">Reclame Aqui · Seazone · 28/10/2026</span>
+  <h1>Nota do próximo mês: risco de cair para 7,0</h1>
+  <p class="lead">Hoje a nota é <strong>7,1</strong>. A planilha de controle estima <strong>7,0</strong> para o próximo mês porque 3 reclamações de proprietários ainda não têm resposta pública. <strong>Respondendo as 3, mesmo sem avaliação do cliente, a nota estimada volta para 7,1.</strong></p>
+</header>
+
+<section class="score" aria-label="Placar da nota">
+  <div class="tile now"><span class="n">7,1</span><span class="l">Nota atual no Reclame Aqui (reputação BOM)</span></div>
+  <div class="tile risk"><span class="n">7,0</span><span class="l">Nota estimada para o próximo mês, se nada mudar (cálculo exato: 6,99)</span></div>
+  <div class="tile goal"><span class="n">7,1</span><span class="l">Nota estimada se as 3 reclamações forem respondidas (cálculo exato: 7,06)</span></div>
+</section>
+
+<section>
+  <h2>Por que a nota cai e por que responder resolve</h2>
+  <div class="box" style="display:grid;gap:10px">
+    <p>A planilha usa a fórmula do Reclame Aqui sobre os últimos 6 meses (28/04 a 28/10/2026): <span class="meta">nota = (Índice de Resposta × 2 + Média das Avaliações × 3 + Índice de Solução × 3 + Novos Negócios × 2) ÷ 100</span>.</p>
+    <p>Nesse período entraram 85 reclamações válidas e 82 foram respondidas. Por isso o Índice de Resposta está em 96,47%. As outras três notas (média 6,15, solução 67,27%, novos negócios 60%) só mudam quando o cliente avalia. Responder as 3 leva o Índice de Resposta a 100% e soma 0,07 à nota, o suficiente para o arredondamento passar de 7,0 para 7,1.</p>
+    <p class="note">No acompanhamento do dia 25 a estimativa era 7,2. Ela caiu para 7,0 porque essas 3 reclamações (20, 22 e 23/10) entraram sem resposta.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Cenários calculados com a fórmula da planilha</h2>
+  <div class="tbl">
+  <table>
+    <thead><tr><th>Cenário</th><th>Nota exata</th><th>Nota arredondada</th><th>Resultado</th></tr></thead>
+    <tbody>
+      <tr><td>Nenhuma das 3 respondida (situação de hoje)</td><td class="num">6,99</td><td class="num">7,0</td><td><span class="pill p-bad">Cai 0,1</span></td></tr>
+      <tr><td>Só 2 das 3 respondidas</td><td class="num">7,04</td><td class="num">7,0</td><td><span class="pill p-bad">Cai 0,1</span></td></tr>
+      <tr class="hl"><td><strong>As 3 respondidas, sem avaliação do cliente</strong></td><td class="num">7,06</td><td class="num">7,1</td><td><span class="pill p-ok">Mantém 7,1</span></td></tr>
+      <tr><td>As 3 respondidas e avaliadas como positivas (nota 10, resolvido, voltaria)</td><td class="num">7,22</td><td class="num">7,2</td><td><span class="pill p-ok">Sobe para 7,2</span></td></tr>
+      <tr><td>As 3 respondidas e 1 delas avaliada negativamente (nota 0, não resolvido)</td><td class="num">6,97</td><td class="num">7,0</td><td><span class="pill p-mid">Cai 0,1</span></td></tr>
+      <tr><td>As 3 respondidas e as 3 avaliadas negativamente</td><td class="num">6,80</td><td class="num">6,8</td><td><span class="pill p-bad">Cai 0,3</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note" style="margin-top:10px">A margem é pequena: 7,06 arredonda para 7,1, mas uma única avaliação negativa já devolve a nota para 7,0. Por isso a resposta pública precisa vir junto com a tratativa, para não provocar uma avaliação ruim. A planilha também indica que 2 avaliações 100% positivas novas garantiriam 7,1 por outro caminho. A janela de 6 meses anda na virada do mês, então reclamações antigas saem do cálculo e o número pode variar um pouco.</p>
+</section>
+
+<section>
+  <h2>As 3 reclamações em aberto</h2>
+  <p class="note" style="margin-bottom:12px">Todas são de proprietários, responsáveis na planilha: Raquel Magnaguagno / Luiza. Na planilha estão como "Em contato com cliente", sem resposta no Reclame Aqui. No Suporte Unificado, os 3 avisos de Reclame Aqui seguem pendentes há mais de 24h (resumo de 28/10 no #resumo-avisos-operação).</p>
+  <div class="cases">
+
+    <article class="case">
+      <div class="case-top"><h3>Não recebi meu sofá consertado e uma extensão nova após encerrar contrato com a Seazone</h3><span class="meta">aberta 20/10 · GDP0008 / MPL0004</span></div>
+      <dl>
+        <dt>O que já foi feito</dt><dd>Em 23/10 o CS suspendeu os e-mails diários cobrando a assinatura do distrato, como a proprietária pediu. Reforçou o posicionamento da franquia: sofá e extensão foram classificados como desgaste de uso, sem novo reparo ou troca.</dd>
+        <dt>Situação</dt><dd>A proprietária segue insatisfeita, diz que não assina o distrato sem o conserto e já citou juizado e advogado.</dd>
+        <dt>Pendência</dt><dd class="pend">Publicar a resposta no Reclame Aqui. É o caso com maior chance de avaliação negativa: a resposta deve registrar o que foi feito sem reabrir a discussão.</dd>
+        <dt>Slack</dt><dd><a href="https://seazone-fund.slack.com/archives/C0AM2DBTRT5/p1792767666507819" target="_blank" rel="noopener">tratativa no #suporte-operação</a> · <a href="https://seazone-fund.slack.com/archives/C0BDDTQ418E/p1792480995560179" target="_blank" rel="noopener">alerta</a></dd>
+      </dl>
+    </article>
+
+    <article class="case">
+      <div class="case-top"><h3>Não consigo bloquear fevereiro e a imobiliária não me atende</h3><span class="meta">aberta 22/10 · RYE0302</span></div>
+      <dl>
+        <dt>O que já foi feito</dt><dd>Em 23/10 o CS (Raquel Szabo) falou com a filha e depois ligou para a proprietária. O telefone do cadastro foi trocado no Sapron e foi aberto suporte com o time da SIA, porque as respostas não chegavam no número dela. Reunião marcada para segunda-feira, 26/10, às 15h30.</dd>
+        <dt>Situação</dt><dd>A proprietária segue insatisfeita e disse que só foi procurada por ter aberto o Reclame Aqui. Não encontrei no Slack o resultado da reunião de 26/10 nem a confirmação do bloqueio de fevereiro.</dd>
+        <dt>Pendência</dt><dd class="pend">Confirmar com a Raquel Szabo o resultado da reunião e o bloqueio de fevereiro, e então publicar a resposta no Reclame Aqui.</dd>
+        <dt>Slack</dt><dd><a href="https://seazone-fund.slack.com/archives/C0AM2DBTRT5/p1792765576682229" target="_blank" rel="noopener">tratativa no #suporte-operação</a> · <a href="https://seazone-fund.slack.com/archives/C0BDDTQ418E/p1792711396962269" target="_blank" rel="noopener">alerta</a></dd>
+      </dl>
+    </article>
+
+    <article class="case">
+      <div class="case-top"><h3>Não consigo contratar a empresa como anfitrião e o atendimento é péssimo</h3><span class="meta">aberta 23/10 · imóvel não identificado</span></div>
+      <dl>
+        <dt>O que já foi feito</dt><dd>Só encontrei o alerta automático de nova reclamação. Não achei handover, suporte ou conversa sobre o caso nos canais que consegui ler.</dd>
+        <dt>Situação</dt><dd>É um potencial cliente que não chegou a fechar contrato. O contato provavelmente cabe ao time comercial ou de expansão.</dd>
+        <dt>Pendência</dt><dd class="pend">Definir quem faz o contato, falar com a pessoa e publicar a resposta. É o caso mais atrasado.</dd>
+        <dt>Slack</dt><dd><a href="https://seazone-fund.slack.com/archives/C0BDDTQ418E/p1792812195437079" target="_blank" rel="noopener">alerta</a></dd>
+      </dl>
+    </article>
+
+  </div>
+</section>
+
+<section>
+  <h2>Próximo passo</h2>
+  <div class="box">
+    <ul>
+      <li>Publicar no Reclame Aqui a resposta das 3 reclamações antes da virada do mês. Com as 3 respondidas, a nota estimada volta para 7,1. Com só 2, continua em 7,0.</li>
+      <li>Em cada resposta, registrar a tratativa já feita e oferecer um canal direto, para reduzir o risco de avaliação negativa.</li>
+      <li>Depois de responder, atualizar a coluna "Status Interno" na planilha para "Respondido" e dar ciente nos 3 avisos do Suporte Unificado.</li>
+    </ul>
+  </div>
+  <p class="note" style="margin-top:10px">Fontes: planilha "Controle Reclame Aqui" (abas Cálculo da Nota, Simulação e Base, lidas em 28/10/2026) e Slack (#avisos-operação, #suporte-operação, #resumo-avisos-operação). O canal #respostas-reclame-aqui não estava acessível pela conta conectada, então as pendências registradas só nele não entraram neste relatório.</p>
+</section>
+</div>
+</body>
+</html>
