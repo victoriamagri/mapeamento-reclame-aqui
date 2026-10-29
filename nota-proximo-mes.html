@@ -55,6 +55,13 @@ a{color:var(--blue)}
 a:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
 ul{margin:0;padding-left:20px;display:grid;gap:6px}
 .box{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+.bars{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:4px;align-items:end;height:180px;border-bottom:1px solid var(--line);padding-top:8px}
+.bar{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;min-width:0}
+.bar i{display:block;width:min(28px,70%);background:var(--blue);border-radius:4px 4px 0 0}
+.bar.post i{background:var(--coral)}
+.bar b{font-family:var(--mono);font-size:.75rem;font-weight:500;color:var(--muted);margin-bottom:4px}
+.bar.post b{color:var(--ink);font-weight:700}
+.bar-x{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:4px;text-align:center;font-size:.8rem;color:var(--muted);margin-top:6px}
 @media (max-width:560px){.score{grid-template-columns:1fr}.case dl{grid-template-columns:1fr}.case dt{margin-top:4px}}
 </style>
 
@@ -139,6 +146,40 @@ ul{margin:0;padding-left:20px;display:grid;gap:6px}
 </section>
 
 <section>
+  <h2>Depois da page brand: mais reclamações de proprietários, menos de hóspedes</h2>
+  <p style="margin-bottom:12px">Desde 01/10, quando a page brand entrou no ar, <strong>55% das reclamações</strong> no Reclame Aqui são de proprietários. De janeiro a setembro eram <strong>26%</strong>. Em outubro entraram 6 reclamações de proprietários e 5 de hóspedes.</p>
+  <div class="tbl">
+  <table>
+    <thead><tr><th>Período</th><th>Hóspedes</th><th>Proprietários</th><th>% de proprietários</th></tr></thead>
+    <tbody>
+      <tr><td>Janeiro a setembro de 2026 (antes da page brand)</td><td class="num">97</td><td class="num">34</td><td class="num">26%</td></tr>
+      <tr class="hl"><td><strong>Outubro de 2026 (depois da page brand)</strong></td><td class="num">5</td><td class="num">6</td><td class="num"><strong>55%</strong></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="margin-top:12px">A mudança também aparece em número absoluto. As reclamações de hóspedes caíram de cerca de 11 por mês, na média de janeiro a setembro, para 5 em outubro. As de proprietários subiram de cerca de 4 por mês para 6.</p>
+
+  <div class="box" style="margin-top:14px">
+    <p class="eyebrow" style="margin-bottom:6px">% das reclamações que são de proprietários, por mês</p>
+    <div class="bars" role="img" aria-label="Percentual de reclamações de proprietários por mês: jan 5%, fev 9%, mar 25%, abr 44%, mai 43%, jun 67%, jul 25%, ago 25%, set 15%, out 55%">
+      <div class="bar" title="Janeiro: 1 de proprietário, 20 de hóspedes"><b>5%</b><i style="height:5%"></i></div>
+      <div class="bar" title="Fevereiro: 1 de proprietário, 10 de hóspedes"><b>9%</b><i style="height:9%"></i></div>
+      <div class="bar" title="Março: 6 de proprietários, 18 de hóspedes"><b>25%</b><i style="height:25%"></i></div>
+      <div class="bar" title="Abril: 8 de proprietários, 10 de hóspedes"><b>44%</b><i style="height:44%"></i></div>
+      <div class="bar" title="Maio: 6 de proprietários, 8 de hóspedes"><b>43%</b><i style="height:43%"></i></div>
+      <div class="bar" title="Junho: 4 de proprietários, 2 de hóspedes"><b>67%</b><i style="height:67%"></i></div>
+      <div class="bar" title="Julho: 4 de proprietários, 12 de hóspedes"><b>25%</b><i style="height:25%"></i></div>
+      <div class="bar" title="Agosto: 2 de proprietários, 6 de hóspedes"><b>25%</b><i style="height:25%"></i></div>
+      <div class="bar" title="Setembro: 2 de proprietários, 11 de hóspedes"><b>15%</b><i style="height:15%"></i></div>
+      <div class="bar post" title="Outubro (page brand): 6 de proprietários, 5 de hóspedes"><b>55%</b><i style="height:55%"></i></div>
+    </div>
+    <div class="bar-x" aria-hidden="true"><span>jan</span><span>fev</span><span>mar</span><span>abr</span><span>mai</span><span>jun</span><span>jul</span><span>ago</span><span>set</span><span>out</span></div>
+  </div>
+
+  <p class="note" style="margin-top:10px">Outubro tem só 11 reclamações, então ainda é cedo para dizer que a page brand é a causa. Se a proporção de janeiro a setembro tivesse continuado, a chance de 6 ou mais das 11 serem de proprietários seria de cerca de 4%. Por isso é pouco provável que seja acaso, mas é um mês só. Junho também teve mais reclamações de proprietários do que de hóspedes, num mês com só 6 reclamações. O onboarding da página foi feito em 29/09. Como não entrou nenhuma reclamação entre 28/09 e 30/09, usar 29/09 ou 01/10 como data de corte dá o mesmo resultado. O controle tem reclamações registradas até 23/10.</p>
+</section>
+
+<section>
   <h2>Próximo passo</h2>
   <div class="box">
     <ul>
@@ -147,7 +188,7 @@ ul{margin:0;padding-left:20px;display:grid;gap:6px}
       <li>Depois de responder, dar ciente nos 3 avisos do Suporte Unificado.</li>
     </ul>
   </div>
-  <p class="note" style="margin-top:10px">Fontes: controle interno das reclamações do Reclame Aqui (consultado em 28/10/2026) e Slack (#respostas-reclame-aqui, #avisos-operação, #suporte-operação, #resumo-avisos-operação).</p>
+  <p class="note" style="margin-top:10px">Fontes: controle interno das reclamações do Reclame Aqui (consultado em 28 e 29/10/2026) e Slack (#respostas-reclame-aqui, #avisos-operação, #suporte-operação, #resumo-avisos-operação).</p>
 </section>
 </div>
 </body>
