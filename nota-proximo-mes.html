@@ -5,191 +5,476 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Nota Reclame Aqui — novembro</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@500&display=swap">
 <style>
-/* Layout: relatório de uma coluna; placar da nota no topo, cenários em tabela, os 3 casos como fichas iguais */
+/* Relatório de uma coluna, tema claro. Cada bloco: frase-resumo em cima, gráfico no meio, explicação embaixo. */
 :root{
   color-scheme: light;
-  --bg:#F6F8FC; --surface:#FFFFFF; --ink:#080E32; --muted:#5A6283; --line:#DDE3F0;
-  --blue:#0055FF; --blue-soft:#E6EEFF; --coral:#FC6058; --coral-soft:#FFECEB; --green:#0F8A5F; --green-soft:#E3F5EE; --amber:#B26A00; --amber-soft:#FFF4E0;
-  --display:"Sora", "Segoe UI", system-ui, sans-serif;
-  --body:"Source Sans 3", "Segoe UI", system-ui, sans-serif;
-  --mono:"JetBrains Mono", Consolas, monospace;
+  --bg:#F6F8FC; --surface:#FFFFFF; --ink:#080E32; --ink2:#2B3358; --muted:#5A6283; --line:#DDE3F0; --grid:#EEF1F7;
+  --blue:#0055FF; --blue-soft:#E6EEFF; --coral:#FC6058; --coral-ink:#C23A33; --coral-soft:#FFECEB;
+  --green:#0F8A5F; --green-soft:#E3F5EE; --amber:#B26A00; --amber-soft:#FFF4E0; --gray-soft:#EEF1F7;
+  --display:"Sora","Segoe UI",system-ui,sans-serif; --body:"Source Sans 3","Segoe UI",system-ui,sans-serif; --mono:"JetBrains Mono",Consolas,monospace;
 }
+*{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55}
-.wrap{max-width:860px;margin:0 auto;padding-block:40px 64px;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));display:grid;gap:36px}
-h1,h2{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.2}
-h1{font-size:1.9rem}
-h2{font-size:1.25rem;margin-bottom:12px}
-p{margin:0;max-width:68ch}
+.wrap{max-width:920px;margin:0 auto;padding-block:40px 72px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:44px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.2}
+h1{font-size:clamp(1.6rem,4vw,2.1rem)}
+h2{font-size:1.3rem}
+h3{font-size:1.02rem;font-weight:600}
+p{margin:0;max-width:70ch}
 .eyebrow{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
-header{display:grid;gap:10px}
-.lead{font-size:1.08rem}
-.lead strong{color:var(--blue)}
-.score{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-.tile{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;display:grid;gap:4px;min-width:0}
-.tile .n{font-family:var(--display);font-size:2.2rem;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.1}
-.tile .l{font-size:.92rem;color:var(--muted)}
-.tile.now .n{color:var(--ink)} .tile.risk .n{color:var(--coral)} .tile.goal .n{color:var(--green)}
-.tile.risk{border-color:var(--coral)}
+header{display:grid;gap:12px}
+.lead{font-size:1.1rem;color:var(--ink2)}
+.lead strong{color:var(--ink)}
+section{display:grid;gap:14px}
+.sec-head{display:grid;gap:6px}
+.sec-head .num{font-family:var(--mono);font-size:.8rem;color:var(--blue)}
+.say{font-size:1.04rem;color:var(--ink2)}
 .note{font-size:.92rem;color:var(--muted)}
-.tbl{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:10px}
-table{border-collapse:collapse;width:100%;min-width:560px;font-size:.95rem}
-th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
-th{font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
-tr:last-child td{border-bottom:0}
-td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
-.pill{display:inline-block;font-size:.8rem;font-weight:600;padding:2px 9px;border-radius:999px;white-space:nowrap}
-.p-ok{background:var(--green-soft);color:var(--green)} .p-bad{background:var(--coral-soft);color:#C23A33} .p-mid{background:var(--amber-soft);color:var(--amber)}
-tr.hl td{background:var(--blue-soft)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;min-width:0}
+.card .ctitle{font-family:var(--display);font-weight:600;font-size:.98rem;margin-bottom:4px}
+.card .csub{font-size:.88rem;color:var(--muted);margin-bottom:14px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+@media (max-width:720px){.grid2,.grid3,.grid4{grid-template-columns:1fr}}
+/* placar */
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;display:grid;gap:6px;min-width:0;align-content:start}
+.tile .k{font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.tile .n{font-family:var(--display);font-size:2.6rem;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+.tile .x{font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+.tile .l{font-size:.95rem;color:var(--ink2)}
+.tile.up{border-color:var(--green);box-shadow:inset 0 4px 0 var(--green)} .tile.up .n{color:var(--green)}
+.tile.down{border-color:var(--coral);box-shadow:inset 0 4px 0 var(--coral)} .tile.down .n{color:var(--coral-ink)}
+.tile.now{box-shadow:inset 0 4px 0 var(--ink)}
+/* legenda */
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.88rem;color:var(--ink2);margin-bottom:10px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:12px;height:12px;border-radius:3px;display:inline-block}
+.sw.dot{border-radius:50%}
+svg{display:block;width:100%;height:auto;overflow:visible}
+svg text{font-family:var(--body);fill:var(--muted);font-size:12px}
+svg .lbl{fill:var(--ink);font-weight:600}
+svg .lbl2{fill:var(--ink2)}
+svg .mono{font-family:var(--mono);font-size:11.5px}
+.hit{cursor:default}
+.hit:hover .mk,.hit:focus .mk{opacity:.85}
+#tip{position:fixed;pointer-events:none;z-index:10;background:var(--ink);color:#fff;font-size:.85rem;line-height:1.35;padding:8px 10px;border-radius:8px;max-width:260px;opacity:0;transition:opacity .12s}
+#tip b{font-family:var(--mono);font-weight:500}
+/* casos */
 .cases{display:grid;gap:14px}
-.case{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;display:grid;gap:10px;min-width:0}
-.case-top{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:baseline;justify-content:space-between}
-.case h3{font-family:var(--display);font-size:1.02rem;margin:0;font-weight:600;min-width:0}
+.case{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;display:grid;gap:14px;min-width:0;border-left:5px solid var(--line)}
+.case.r-alto{border-left-color:var(--coral)} .case.r-muito{border-left-color:var(--coral-ink)} .case.r-medio{border-left-color:var(--amber)}
+.case-top{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;justify-content:space-between}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.pill{display:inline-flex;align-items:center;gap:5px;font-size:.8rem;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.p-h{background:var(--blue-soft);color:var(--blue)} .p-p{background:var(--coral-soft);color:var(--coral-ink)} .p-i{background:var(--amber-soft);color:var(--amber)}
+.p-ok{background:var(--green-soft);color:var(--green)} .p-bad{background:var(--coral-soft);color:var(--coral-ink)} .p-mid{background:var(--amber-soft);color:var(--amber)} .p-gray{background:var(--gray-soft);color:var(--ink2)}
 .meta{font-family:var(--mono);font-size:.8rem;color:var(--muted)}
-.case dl{margin:0;display:grid;grid-template-columns:150px minmax(0,1fr);gap:6px 14px}
+.steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px}
+.step{display:grid;gap:5px;font-size:.78rem;color:var(--muted);text-align:center}
+.step i{display:block;height:6px;border-radius:3px;background:var(--grid)}
+.step.done i{background:var(--blue)} .step.cur i{background:var(--blue);opacity:.45}
+.step.cur{color:var(--ink);font-weight:600}
+.case dl{margin:0;display:grid;grid-template-columns:150px minmax(0,1fr);gap:8px 16px}
 .case dt{font-weight:600;font-size:.9rem;color:var(--muted)}
 .case dd{margin:0}
-.pend{color:#C23A33;font-weight:600}
+.pend{color:var(--coral-ink);font-weight:600}
+@media (max-width:600px){.case dl{grid-template-columns:1fr}.case dt{margin-top:4px}.steps{grid-template-columns:repeat(5,minmax(0,1fr))}.step span{font-size:.68rem}}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+ul,ol{margin:0;padding-left:20px;display:grid;gap:8px}
+.callout{background:var(--blue-soft);border-radius:12px;padding:16px 18px;display:grid;gap:6px}
+.callout.warn{background:var(--coral-soft)}
+.callout strong{color:var(--ink)}
+.tbl{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;min-width:540px;font-size:.93rem}
+th,td{text-align:left;padding:9px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+tr:last-child td{border-bottom:0}
+td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+details{font-size:.92rem}
+details summary{cursor:pointer;color:var(--blue);font-weight:600}
+details[open] summary{margin-bottom:10px}
 a{color:var(--blue)}
-a:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
-ul{margin:0;padding-left:20px;display:grid;gap:6px}
-.box{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
-.bars{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:4px;align-items:end;height:180px;border-bottom:1px solid var(--line);padding-top:8px}
-.bar{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;min-width:0}
-.bar i{display:block;width:min(28px,70%);background:var(--blue);border-radius:4px 4px 0 0}
-.bar.post i{background:var(--coral)}
-.bar b{font-family:var(--mono);font-size:.75rem;font-weight:500;color:var(--muted);margin-bottom:4px}
-.bar.post b{color:var(--ink);font-weight:700}
-.bar-x{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:4px;text-align:center;font-size:.8rem;color:var(--muted);margin-top:6px}
-@media (max-width:560px){.score{grid-template-columns:1fr}.case dl{grid-template-columns:1fr}.case dt{margin-top:4px}}
+a:focus-visible,summary:focus-visible,.hit:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
 </style>
-
 </head>
 <body>
+<div id="tip" role="status" aria-live="polite"></div>
 <div class="wrap">
+
 <header>
-  <span class="eyebrow">Reclame Aqui · Seazone · 28/10/2026</span>
-  <h1>Nota do próximo mês: risco de cair para 7,0</h1>
-  <p class="lead">Hoje a nota é <strong>7,1</strong>. A nota estimada é <strong>7,0</strong> para o próximo mês porque 3 reclamações de proprietários ainda não têm resposta pública. <strong>Respondendo as 3, mesmo sem avaliação do cliente, a nota estimada volta para 7,1.</strong></p>
+  <span class="eyebrow">Reclame Aqui · Seazone · atualizado em 10/11/2026</span>
+  <h1>5 reclamações em aberto decidem se a nota sobe para 7,2 ou cai para 7,0</h1>
+  <p class="lead">A nota hoje é <strong>7,1</strong>. Se as 5 reclamações abertas forem respondidas e <strong>ninguém avaliar mal</strong>, ela sobe para <strong>7,2</strong>. Mas a margem é curta: <strong>uma única avaliação negativa já segura a nota em 7,1</strong>, e três derrubam para 7,0. Por isso, nos casos mais tensos, a regra é responder bem e <strong>não pedir avaliação</strong>.</p>
 </header>
 
-<section class="score" aria-label="Placar da nota">
-  <div class="tile now"><span class="n">7,1</span><span class="l">Nota atual no Reclame Aqui (reputação BOM)</span></div>
-  <div class="tile risk"><span class="n">7,0</span><span class="l">Nota estimada para o próximo mês, se nada mudar (cálculo exato: 6,99)</span></div>
-  <div class="tile goal"><span class="n">7,1</span><span class="l">Nota estimada se as 3 reclamações forem respondidas (cálculo exato: 7,06)</span></div>
-</section>
-
-<section>
-  <h2>Por que a nota cai e por que responder resolve</h2>
-  <div class="box" style="display:grid;gap:10px">
-    <p>O cálculo é feito a partir da fórmula do Reclame Aqui sobre os últimos 6 meses (28/04 a 28/10/2026): <span class="meta">nota = (Índice de Resposta × 2 + Média das Avaliações × 3 + Índice de Solução × 3 + Novos Negócios × 2) ÷ 100</span>.</p>
-    <p>Nesse período entraram 85 reclamações válidas e 82 foram respondidas. Por isso o Índice de Resposta está em 96,47%. As outras três notas (média 6,15, solução 67,27%, novos negócios 60%) só mudam quando o cliente avalia. Responder as 3 leva o Índice de Resposta a 100% e soma 0,07 à nota, o suficiente para o arredondamento passar de 7,0 para 7,1.</p>
-    <p class="note">No acompanhamento do dia 25 a estimativa era 7,2. Ela caiu para 7,0 porque essas 3 reclamações (20, 22 e 23/10) entraram sem resposta.</p>
+<!-- 1. PLACAR -->
+<section aria-label="Placar da nota">
+  <div class="grid3">
+    <div class="tile now"><span class="k">Hoje</span><span class="n">7,1</span><span class="x">cálculo exato 7,13</span><span class="l">Nota atual, reputação BOM. 81 de 86 reclamações respondidas.</span></div>
+    <div class="tile up"><span class="k">Melhor caminho</span><span class="n">7,2</span><span class="x">cálculo exato 7,24</span><span class="l">As 5 respondidas e nenhuma avaliação negativa.</span></div>
+    <div class="tile down"><span class="k">Risco</span><span class="n">7,0</span><span class="x">cálculo exato 6,96</span><span class="l">As 5 respondidas, mas 3 delas avaliadas como negativas.</span></div>
   </div>
 </section>
 
+<!-- 2. ESCADA DA NOTA -->
 <section>
-  <h2>Cenários calculados com a fórmula do Reclame Aqui</h2>
-  <div class="tbl">
-  <table>
-    <thead><tr><th>Cenário</th><th>Nota exata</th><th>Nota arredondada</th><th>Resultado</th></tr></thead>
-    <tbody>
-      <tr><td>Nenhuma das 3 respondida (situação de hoje)</td><td class="num">6,99</td><td class="num">7,0</td><td><span class="pill p-bad">Cai 0,1</span></td></tr>
-      <tr><td>Só 2 das 3 respondidas</td><td class="num">7,04</td><td class="num">7,0</td><td><span class="pill p-bad">Cai 0,1</span></td></tr>
-      <tr class="hl"><td><strong>As 3 respondidas, sem avaliação do cliente</strong></td><td class="num">7,06</td><td class="num">7,1</td><td><span class="pill p-ok">Mantém 7,1</span></td></tr>
-      <tr><td>As 3 respondidas e avaliadas como positivas (nota 10, resolvido, voltaria)</td><td class="num">7,22</td><td class="num">7,2</td><td><span class="pill p-ok">Sobe para 7,2</span></td></tr>
-      <tr><td>As 3 respondidas e 1 delas avaliada negativamente (nota 0, não resolvido)</td><td class="num">6,97</td><td class="num">7,0</td><td><span class="pill p-mid">Cai 0,1</span></td></tr>
-      <tr><td>As 3 respondidas e as 3 avaliadas negativamente</td><td class="num">6,80</td><td class="num">6,8</td><td><span class="pill p-bad">Cai 0,3</span></td></tr>
-    </tbody>
-  </table>
+  <div class="sec-head">
+    <span class="num">01 · Como a nota se mexe</span>
+    <h2>Responder sobe a nota. Avaliação negativa derruba mais rápido.</h2>
+    <p class="say">Cada ponto abaixo é um cenário calculado com a fórmula do Reclame Aqui. As faixas coloridas mostram qual nota aparece na página depois do arredondamento.</p>
   </div>
-  <p class="note" style="margin-top:10px">A margem é pequena: 7,06 arredonda para 7,1, mas uma única avaliação negativa já devolve a nota para 7,0. Por isso a resposta pública precisa vir junto com a tratativa, para não provocar uma avaliação ruim. Pelo mesmo cálculo, 2 avaliações 100% positivas novas garantiriam 7,1 por outro caminho. A janela de 6 meses anda na virada do mês, então reclamações antigas saem do cálculo e o número pode variar um pouco.</p>
+  <div class="card">
+    <div class="ctitle">Nota exata em cada cenário e a nota que aparece no Reclame Aqui</div>
+    <div class="csub">Passe o mouse (ou toque) nos pontos para ver o número exato.</div>
+    <div class="legend" aria-hidden="true">
+      <span><i class="sw" style="background:var(--coral-soft);border:1px solid var(--coral)"></i>aparece 7,0 ou menos</span>
+      <span><i class="sw" style="background:var(--gray-soft);border:1px solid #B8C0D6"></i>aparece 7,1 (igual a hoje)</span>
+      <span><i class="sw" style="background:var(--green-soft);border:1px solid var(--green)"></i>aparece 7,2 ou mais</span>
+    </div>
+    <div id="ch-escada" role="img" aria-label="Gráfico de pontos com 8 cenários da nota. Hoje 7,13. Cinco respondidas sem avaliação 7,24. Com 1 negativa 7,15. Com 2 negativas 7,05. Com 3 negativas 6,96. Com 5 negativas 6,79. Com 1 negativa e 1 positiva 7,20. Com 2 positivas 7,35."></div>
+  </div>
+  <div class="grid2">
+    <div class="callout"><strong>Por que responder já ajuda.</strong><p>Um quinto da nota é o Índice de Resposta. Hoje ele está em 94% porque 5 das 86 reclamações dos últimos 6 meses estão sem resposta. Respondendo as 5, ele vai a 100% e a nota sobe de 7,13 para 7,24, mesmo sem nenhum cliente avaliar.</p></div>
+    <div class="callout warn"><strong>Por que a avaliação negativa pesa tanto.</strong><p>As outras partes da nota (média das notas, índice de solução e "voltaria a fazer negócio") só contam quem avaliou: são apenas 53 avaliações. Uma nota 0 com "não resolvido" entra nas três ao mesmo tempo e tira cerca de 0,1 da nota. Para empatar, é preciso uma avaliação 100% positiva.</p></div>
+  </div>
 </section>
 
+<!-- 3. CADA RESPOSTA -->
 <section>
-  <h2>As 3 reclamações em aberto</h2>
-  <p class="note" style="margin-bottom:12px">Todas são de proprietários, com Raquel Magnaguagno / Luiza como responsáveis. As 3 estão em contato com o cliente, ainda sem resposta no Reclame Aqui. No Suporte Unificado, os 3 avisos de Reclame Aqui seguem pendentes há mais de 24h (resumo de 28/10 no #resumo-avisos-operação).</p>
+  <div class="sec-head">
+    <span class="num">02 · Quantas precisam ser respondidas</span>
+    <h2>Cada reclamação respondida soma cerca de 0,02 à nota</h2>
+    <p class="say">Com 1 resposta a nota exata já passa de 7,15, que arredonda para 7,2, mas passa raspando. Com as 5 respondidas, ela chega a 7,24. Mesmo assim, essa folga não aguenta uma avaliação negativa.</p>
+  </div>
+  <div class="card">
+    <div class="ctitle">Nota exata conforme o número de reclamações respondidas, sem nenhuma avaliação nova</div>
+    <div class="csub">A linha tracejada em verde é o 7,15: acima dela o Reclame Aqui mostra 7,2.</div>
+    <div id="ch-resp" role="img" aria-label="Nota exata por número de respostas: 0 respondidas 7,13; 1 respondida 7,15; 2 respondidas 7,18; 3 respondidas 7,20; 4 respondidas 7,22; 5 respondidas 7,24."></div>
+  </div>
+  <p class="note">A conta usa a janela de 6 meses de hoje (10/05 a 10/11/2026). A janela anda todo dia, então reclamações antigas saem do cálculo e o número pode variar um pouco. Cada reclamação nova que entrar e ficar sem resposta tira cerca de 0,02. Há ainda 28 reclamações já respondidas que nunca foram avaliadas (9 de proprietários). O cliente pode avaliar qualquer uma delas a qualquer momento, e isso também mexe na nota.</p>
+</section>
+
+<!-- 4. OS 5 CASOS -->
+<section>
+  <div class="sec-head">
+    <span class="num">03 · As reclamações em aberto</span>
+    <h2>Os 5 casos "em contato com cliente"</h2>
+    <p class="say">São 2 de hóspedes, 2 de proprietários e 1 de implantação. Todos entraram entre 04 e 10/11. Em nenhum deles vale pedir avaliação: ou o cliente está atritado, ou o pedido dele foi negado em parte.</p>
+  </div>
+
+  <div class="card">
+    <div class="ctitle">Onde cada caso está no processo</div>
+    <div class="csub">Etapas: triagem, tratativa com o cliente, decisão interna, rascunho da resposta e publicação no Reclame Aqui.</div>
+    <div id="ch-funil" role="img" aria-label="Etapa de cada caso: reserva cancelada está em rascunho; desconto e realocação em tratativa; R$ 410 em decisão interna; reposição de itens em tratativa; enxoval em tratativa com entrega marcada para 11/11."></div>
+  </div>
+
   <div class="cases">
 
-    <article class="case">
-      <div class="case-top"><h3>Não recebi meu sofá consertado e uma extensão nova após encerrar contrato com a Seazone</h3><span class="meta">aberta 20/10 · GDP0008 / MPL0004</span></div>
+    <article class="case r-medio">
+      <div class="case-top"><h3>1. Reserva cancelada pela anfitriã horas antes do check-in</h3><span class="meta">aberta 04/11 · há 6 dias</span></div>
+      <div class="tags"><span class="pill p-h">Hóspede</span><span class="pill p-mid">Risco médio</span><span class="pill p-gray">Não pedir avaliação</span></div>
+      <div class="steps" aria-hidden="true"><div class="step done"><i></i><span>Triagem</span></div><div class="step done"><i></i><span>Tratativa</span></div><div class="step done"><i></i><span>Decisão</span></div><div class="step cur"><i></i><span>Rascunho</span></div><div class="step"><i></i><span>Publicado</span></div></div>
       <dl>
-        <dt>O que já foi feito</dt><dd>Em 23/10 o CS suspendeu os e-mails diários cobrando a assinatura do distrato, como a proprietária pediu. Reforçou o posicionamento da franquia: sofá e extensão foram classificados como desgaste de uso, sem novo reparo ou troca.</dd>
-        <dt>Situação</dt><dd>A proprietária segue insatisfeita, diz que não assina o distrato sem o conserto e já citou juizado e advogado.</dd>
-        <dt>Pendência</dt><dd class="pend">Publicar a resposta no Reclame Aqui. É o caso com maior chance de avaliação negativa: a resposta deve registrar o que foi feito sem reabrir a discussão.</dd>
-        <dt>Slack</dt><dd><a href="https://seazone-fund.slack.com/archives/C0AM2DBTRT5/p1792767666507819" target="_blank" rel="noopener">tratativa no #suporte-operação</a> · <a href="https://seazone-fund.slack.com/archives/C0BDDTQ418E/p1792480995560179" target="_blank" rel="noopener">alerta</a></dd>
+        <dt>O problema</dt><dd>A família já estava na estrada para Salvador quando a anfitriã ligou cancelando a reserva, citando regras do condomínio. Chegaram sem lugar para ficar.</dd>
+        <dt>O que já foi feito</dt><dd>O Atendimento fez o reembolso integral da reserva. O hóspede pediu também os custos de transporte, e isso foi negado. Desde então ele não respondeu mais.</dd>
+        <dt>Por que o risco</dt><dd>O reembolso foi feito, mas ele teve um pedido negado e o relato é muito emocional. Pode avaliar mal.</dd>
+        <dt>Falta</dt><dd class="pend">Publicar a resposta. Em 10/11 ficou decidido seguir com ela, mesmo sem retorno do hóspede.</dd>
       </dl>
     </article>
 
-    <article class="case">
-      <div class="case-top"><h3>Não consigo bloquear fevereiro e a imobiliária não me atende</h3><span class="meta">aberta 22/10 · RYE0302</span></div>
+    <article class="case r-alto">
+      <div class="case-top"><h3>2. Desconto considerado injusto e sem realocação após problemas no imóvel</h3><span class="meta">aberta 08/11 · há 2 dias</span></div>
+      <div class="tags"><span class="pill p-h">Hóspede</span><span class="pill p-bad">Risco alto</span><span class="pill p-gray">Não pedir avaliação</span></div>
+      <div class="steps" aria-hidden="true"><div class="step done"><i></i><span>Triagem</span></div><div class="step cur"><i></i><span>Tratativa</span></div><div class="step"><i></i><span>Decisão</span></div><div class="step"><i></i><span>Rascunho</span></div><div class="step"><i></i><span>Publicado</span></div></div>
       <dl>
-        <dt>O que já foi feito</dt><dd>Em 23/10 o CS (Raquel Szabo) falou com a filha e depois ligou para a proprietária. O telefone do cadastro foi trocado no Sapron e foi aberto suporte com o time da SIA, porque as respostas não chegavam no número dela. Reunião marcada para segunda-feira, 26/10, às 15h30.</dd>
-        <dt>Situação</dt><dd>A proprietária segue insatisfeita e disse que só foi procurada por ter aberto o Reclame Aqui. Não encontrei no Slack o resultado da reunião de 26/10 nem a confirmação do bloqueio de fevereiro.</dd>
-        <dt>Pendência</dt><dd class="pend">Confirmar com a Raquel Szabo o resultado da reunião e o bloqueio de fevereiro, e então publicar a resposta no Reclame Aqui.</dd>
-        <dt>Slack</dt><dd><a href="https://seazone-fund.slack.com/archives/C0AM2DBTRT5/p1792765576682229" target="_blank" rel="noopener">tratativa no #suporte-operação</a> · <a href="https://seazone-fund.slack.com/archives/C0BDDTQ418E/p1792711396962269" target="_blank" rel="noopener">alerta</a></dd>
+        <dt>O problema</dt><dd>Estadia longa em Itapema com mofo, limpeza ruim, defeitos no chuveiro, na TV, na porta e internet fraca. Ela pediu para sair do imóvel e isso não foi oferecido. O desconto que recebeu no fim ela considera muito baixo.</dd>
+        <dt>O que já foi feito</dt><dd>A cliente e a reserva foram identificadas em 08/11 e o time de Atendimento a Hóspedes foi acionado. Cobrado em 09/11, ainda sem retorno na thread.</dd>
+        <dt>Por que o risco</dt><dd>Ela já recebeu uma compensação e não aceitou. Se a resposta só repetir a regra, a chance de nota baixa é grande.</dd>
+        <dt>Falta</dt><dd class="pend">O Atendimento falar com a cliente, decidir se revê a compensação e mandar o resumo na thread.</dd>
       </dl>
     </article>
 
-    <article class="case">
-      <div class="case-top"><h3>Não consigo contratar a empresa como anfitrião e o atendimento é péssimo</h3><span class="meta">aberta 23/10 · ECU0302</span></div>
+    <article class="case r-alto">
+      <div class="case-top"><h3>3. Proprietário exige a devolução de R$ 410 descontados do repasse</h3><span class="meta">aberta 09/11 · há 1 dia</span></div>
+      <div class="tags"><span class="pill p-p">Proprietário</span><span class="pill p-bad">Risco alto</span><span class="pill p-gray">Não pedir avaliação</span></div>
+      <div class="steps" aria-hidden="true"><div class="step done"><i></i><span>Triagem</span></div><div class="step done"><i></i><span>Tratativa</span></div><div class="step cur"><i></i><span>Decisão</span></div><div class="step"><i></i><span>Rascunho</span></div><div class="step"><i></i><span>Publicado</span></div></div>
       <dl>
-        <dt>O que aconteceu</dt><dd>O churn do imóvel foi efetivado em 02/10, por desalinhamento sobre o enxoval. Em 12/10 o proprietário voltou pela SIA querendo comprar o enxoval e retomar. Em 13/10 a conversa foi transferida para Pré-vendas SZI (fila errada), depois para SZS e por fim para o Suporte Proprietário, e fechou em 14/10 sem resposta humana. A falha foi no encaminhamento.</dd>
-        <dt>Situação</dt><dd>Ele quer recontratar e tem uma dúvida sobre os reparos da cobertura. O caso está com o time da Larissa Rodrigues Constantino, que agendou uma call com o proprietário para 28/10. Samuel Peixoto acompanha.</dd>
-        <dt>Pendência</dt><dd class="pend">Concluir a tratativa e mandar o resumo no thread para a resposta ser publicada no Reclame Aqui. Combinado no thread: não pedir avaliação ao proprietário ao finalizar a conversa.</dd>
-        <dt>Slack</dt><dd><a href="https://seazone-fund.slack.com/archives/C071XGMDFEE/p1792812195125019" target="_blank" rel="noopener">thread no #respostas-reclame-aqui</a></dd>
+        <dt>O problema</dt><dd>Um hóspede recebeu desconto de 20% das diárias e o valor saiu do repasse do proprietário, que diz não ter autorizado.</dd>
+        <dt>O que já foi feito</dt><dd>O CS Proprietários levantou o caso. A piscina aquecida do prédio estava fechada para obra sem aviso no anúncio, e havia uma goteira na sala. O contrato permite negociar com o hóspede, e a manutenção do imóvel é do proprietário. Mas a causa principal foi a falha no anúncio.</dd>
+        <dt>Por que o risco</dt><dd>Proprietário novo e indignado, e parte da razão é dele. Manter o desconto inteiro tende a gerar nota baixa.</dd>
+        <dt>Falta</dt><dd class="pend">Decidir entre manter o desconto, estornar parte (a parte da piscina) ou estornar tudo. A decisão foi pedida à coordenação do CS em 10/11.</dd>
+      </dl>
+    </article>
+
+    <article class="case r-muito">
+      <div class="case-top"><h3>4. Proprietária cobra a reposição de itens levados por hóspedes</h3><span class="meta">aberta 10/11 · hoje</span></div>
+      <div class="tags"><span class="pill p-p">Proprietária em encerramento</span><span class="pill p-bad">Risco muito alto</span><span class="pill p-gray">Não pedir avaliação</span></div>
+      <div class="steps" aria-hidden="true"><div class="step done"><i></i><span>Triagem</span></div><div class="step cur"><i></i><span>Tratativa</span></div><div class="step"><i></i><span>Decisão</span></div><div class="step"><i></i><span>Rascunho</span></div><div class="step"><i></i><span>Publicado</span></div></div>
+      <dl>
+        <dt>O problema</dt><dd>Na vistoria de saída faltaram 3 itens: um porta-papel de inox, uma extensão de tomadas e uma sanduicheira. Ela não assina a rescisão sem a reposição.</dd>
+        <dt>O que já foi feito</dt><dd>É a segunda reclamação da mesma proprietária. A primeira, sobre o sofá, foi aberta em 20/10, já foi respondida e ainda não foi avaliada. O sofá foi ressarcido pela franquia há 2 dias. O novo caso foi repassado ao time em 10/11.</dd>
+        <dt>Por que o risco</dt><dd>São duas reclamações dela na nota, e ela pode avaliar mal as duas. No caso anterior ela já falou em juizado e advogado.</dd>
+        <dt>Falta</dt><dd class="pend">Uma posição da franquia sobre a reposição dos 3 itens, e então o resumo na thread.</dd>
+      </dl>
+    </article>
+
+    <article class="case r-medio">
+      <div class="case-top"><h3>5. Kit de enxoval pago e não entregue após o cancelamento</h3><span class="meta">aberta 10/11 · hoje</span></div>
+      <div class="tags"><span class="pill p-i">Implantação</span><span class="pill p-mid">Risco médio</span><span class="pill p-gray">Não pedir avaliação</span></div>
+      <div class="steps" aria-hidden="true"><div class="step done"><i></i><span>Triagem</span></div><div class="step cur"><i></i><span>Tratativa</span></div><div class="step"><i></i><span>Decisão</span></div><div class="step"><i></i><span>Rascunho</span></div><div class="step"><i></i><span>Publicado</span></div></div>
+      <dl>
+        <dt>O problema</dt><dd>Ele pagou o enxoval em 18/08 e cancelou em 23/10, antes de o imóvel ativar, por não gostar de como o anfitrião local atuava. Desde o distrato, em 26/10, cobra o enxoval, que ficou com a franquia. Fala em judicializar.</dd>
+        <dt>O que já foi feito</dt><dd>O time de Implantação identificou o caso e o CSO assumiu. O enxoval está separado com a franquia e a entrega foi combinada para 11/11, com o proprietário no prédio.</dd>
+        <dt>Por que o risco</dt><dd>Se a entrega acontecer amanhã, a resposta pode registrar que o problema foi resolvido. A insatisfação com o modelo do anfitrião continua.</dd>
+        <dt>Falta</dt><dd class="pend">Confirmar a entrega na thread e então responder.</dd>
       </dl>
     </article>
 
   </div>
 </section>
 
+<!-- 5. PROBLEMAS APONTADOS -->
 <section>
-  <h2>Depois da page brand: mais reclamações de proprietários, menos de hóspedes</h2>
-  <p style="margin-bottom:12px">Desde 01/10, quando a page brand entrou no ar, <strong>55% das reclamações</strong> no Reclame Aqui são de proprietários. De janeiro a setembro eram <strong>26%</strong>. Em outubro entraram 6 reclamações de proprietários e 5 de hóspedes.</p>
-  <div class="tbl">
-  <table>
-    <thead><tr><th>Período</th><th>Hóspedes</th><th>Proprietários</th><th>% de proprietários</th></tr></thead>
-    <tbody>
-      <tr><td>Janeiro a setembro de 2026 (antes da page brand)</td><td class="num">97</td><td class="num">34</td><td class="num">26%</td></tr>
-      <tr class="hl"><td><strong>Outubro de 2026 (depois da page brand)</strong></td><td class="num">5</td><td class="num">6</td><td class="num"><strong>55%</strong></td></tr>
-    </tbody>
-  </table>
+  <div class="sec-head">
+    <span class="num">04 · O que estão reclamando</span>
+    <h2>Desde outubro, os temas se repetem: condição do imóvel, cancelamento e saída do contrato</h2>
+    <p class="say">São 20 reclamações de 01/10 a 10/11, metade de hóspedes e metade de proprietários. Agrupando pelo assunto principal de cada uma:</p>
   </div>
-  <p style="margin-top:12px">A mudança também aparece em número absoluto. As reclamações de hóspedes caíram de cerca de 11 por mês, na média de janeiro a setembro, para 5 em outubro. As de proprietários subiram de cerca de 4 por mês para 6.</p>
-
-  <div class="box" style="margin-top:14px">
-    <p class="eyebrow" style="margin-bottom:6px">% das reclamações que são de proprietários, por mês</p>
-    <div class="bars" role="img" aria-label="Percentual de reclamações de proprietários por mês: jan 5%, fev 9%, mar 25%, abr 44%, mai 43%, jun 67%, jul 25%, ago 25%, set 15%, out 55%">
-      <div class="bar" title="Janeiro: 1 de proprietário, 20 de hóspedes"><b>5%</b><i style="height:5%"></i></div>
-      <div class="bar" title="Fevereiro: 1 de proprietário, 10 de hóspedes"><b>9%</b><i style="height:9%"></i></div>
-      <div class="bar" title="Março: 6 de proprietários, 18 de hóspedes"><b>25%</b><i style="height:25%"></i></div>
-      <div class="bar" title="Abril: 8 de proprietários, 10 de hóspedes"><b>44%</b><i style="height:44%"></i></div>
-      <div class="bar" title="Maio: 6 de proprietários, 8 de hóspedes"><b>43%</b><i style="height:43%"></i></div>
-      <div class="bar" title="Junho: 4 de proprietários, 2 de hóspedes"><b>67%</b><i style="height:67%"></i></div>
-      <div class="bar" title="Julho: 4 de proprietários, 12 de hóspedes"><b>25%</b><i style="height:25%"></i></div>
-      <div class="bar" title="Agosto: 2 de proprietários, 6 de hóspedes"><b>25%</b><i style="height:25%"></i></div>
-      <div class="bar" title="Setembro: 2 de proprietários, 11 de hóspedes"><b>15%</b><i style="height:15%"></i></div>
-      <div class="bar post" title="Outubro (page brand): 6 de proprietários, 5 de hóspedes"><b>55%</b><i style="height:55%"></i></div>
-    </div>
-    <div class="bar-x" aria-hidden="true"><span>jan</span><span>fev</span><span>mar</span><span>abr</span><span>mai</span><span>jun</span><span>jul</span><span>ago</span><span>set</span><span>out</span></div>
+  <div class="card">
+    <div class="ctitle">Reclamações por assunto, de 01/10 a 10/11/2026</div>
+    <div class="csub">Cada barra soma hóspedes e proprietários. Os 5 casos abertos estão incluídos.</div>
+    <div class="legend" aria-hidden="true"><span><i class="sw" style="background:var(--blue)"></i>Hóspedes</span><span><i class="sw" style="background:var(--coral)"></i>Proprietários e implantação</span></div>
+    <div id="ch-temas" role="img" aria-label="Reclamações por assunto desde 01/10: imóvel diferente do anunciado ou em más condições, 4 de hóspedes; cancelamento, remarcação ou reembolso, 4 de hóspedes; danos, itens e devolução na saída do contrato, 3 de proprietários; enxoval e entrada ou saída do contrato, 2 de proprietários; calendário, diárias e preço, 3 de proprietários; descontos no repasse, 1 de proprietário; contato e atendimento, 1 de proprietário; acesso no check-in, 1 de hóspede; sem título, 1 de hóspede."></div>
   </div>
-
-  <p class="note" style="margin-top:10px">Outubro tem só 11 reclamações, então ainda é cedo para dizer que a page brand é a causa. Se a proporção de janeiro a setembro tivesse continuado, a chance de 6 ou mais das 11 serem de proprietários seria de cerca de 4%. Por isso é pouco provável que seja acaso, mas é um mês só. Junho também teve mais reclamações de proprietários do que de hóspedes, num mês com só 6 reclamações. O onboarding da página foi feito em 29/09. Como não entrou nenhuma reclamação entre 28/09 e 30/09, usar 29/09 ou 01/10 como data de corte dá o mesmo resultado. O controle tem reclamações registradas até 23/10.</p>
+  <div class="grid2">
+    <div class="box"><p><strong>Hóspedes.</strong> Duas queixas dominam. A primeira é o imóvel não estar como no anúncio ou em boas condições: obra sem aviso, imóvel inferior, sujeira, mofo, itens quebrados. A segunda é cancelamento, remarcação ou reembolso, incluindo cancelamentos feitos pelo próprio anfitrião local.</p></div>
+    <div class="box"><p><strong>Proprietários.</strong> A maior parte aparece no fim ou no começo da relação: danos e itens faltando na vistoria de saída, enxoval não devolvido, recontratação. Depois vêm calendário e preço (bloqueio de datas, diária mínima, valor da diária) e um desconto dado ao hóspede e cobrado no repasse.</p></div>
+  </div>
+  <p class="note">Um ponto aparece nos dois públicos: a decisão ou a demora do anfitrião local. Foi assim no cancelamento horas antes do check-in, na reposição dos itens e do sofá e no enxoval que não foi devolvido. Em 3 das 5 reclamações abertas, o anfitrião local está no centro do problema.</p>
 </section>
 
+<!-- 6. PROPRIETÁRIOS -->
 <section>
-  <h2>Próximo passo</h2>
+  <div class="sec-head">
+    <span class="num">05 · Depois da page brand</span>
+    <h2>Proprietários passaram de 1 em cada 4 reclamações para 1 em cada 2</h2>
+    <p class="say">Desde 01/10, quando a page brand entrou no ar, <strong>50% das reclamações</strong> são de proprietários (10 de 20). De janeiro a setembro eram <strong>24%</strong> (36 de 148).</p>
+  </div>
+
+  <div class="grid4">
+    <div class="tile"><span class="k">Jan a set</span><span class="n">24%</span><span class="l">das reclamações eram de proprietários</span></div>
+    <div class="tile down"><span class="k">Out a 10/11</span><span class="n">50%</span><span class="l">das reclamações são de proprietários</span></div>
+    <div class="tile"><span class="k">Proprietários por mês</span><span class="n">4 → 6</span><span class="l">média de jan a set contra outubro</span></div>
+    <div class="tile"><span class="k">Hóspedes por mês</span><span class="n">12 → 6</span><span class="l">média de jan a set contra outubro</span></div>
+  </div>
+
+  <div class="card">
+    <div class="ctitle">Reclamações por mês, hóspedes e proprietários</div>
+    <div class="csub">Novembro vai só até o dia 10. A linha vertical marca a entrada da page brand, em 01/10.</div>
+    <div class="legend" aria-hidden="true"><span><i class="sw" style="background:var(--blue)"></i>Hóspedes</span><span><i class="sw" style="background:var(--coral)"></i>Proprietários</span></div>
+    <div id="ch-mes" role="img" aria-label="Reclamações por mês. Jan: 18 hóspedes, 1 proprietário. Fev: 10 e 1. Mar: 21 e 6. Abr: 10 e 8. Mai: 10 e 6. Jun: 5 e 5. Jul: 13 e 4. Ago: 14 e 3. Set: 11 e 2. Out: 6 e 6. Nov até dia 10: 4 e 4."></div>
+  </div>
+
+  <div class="card">
+    <div class="ctitle">% das reclamações que são de proprietários, por mês</div>
+    <div class="csub">A linha tracejada é a média de janeiro a setembro (24%).</div>
+    <div id="ch-pct" role="img" aria-label="Percentual de proprietários por mês: jan 5%, fev 9%, mar 22%, abr 44%, mai 38%, jun 50%, jul 24%, ago 18%, set 15%, out 50%, nov até dia 10 50%."></div>
+  </div>
+
+  <p class="note">Novembro só tem 10 dias e já tem 4 reclamações de proprietários, o mesmo número de hóspedes. Nesse ritmo, o mês fecharia com cerca de 12 de proprietários, o dobro de outubro. Se a proporção de janeiro a setembro tivesse continuado, a chance de 10 ou mais das 20 reclamações serem de proprietários seria de cerca de 1%. Então é difícil ser acaso. Ainda são só 6 semanas, e junho também teve metade de proprietários, num mês com só 10 reclamações. Os números de janeiro a setembro foram revisados com o controle de hoje, por isso diferem um pouco da versão de 28/10.</p>
+</section>
+
+<!-- 7. POR QUE IMPORTA -->
+<section>
+  <div class="sec-head">
+    <span class="num">06 · Por que isso ameaça a nota</span>
+    <h2>Proprietário avalia pior que hóspede</h2>
+    <p class="say">Considerando todas as reclamações avaliadas em 2026, o proprietário dá nota mais baixa, se diz menos resolvido e dá nota 0 a 3 com mais frequência. Com mais reclamações de proprietários, a nota fica mais exposta.</p>
+  </div>
+  <div class="card">
+    <div class="ctitle">Como cada público avalia depois da resposta (2026)</div>
+    <div class="csub">80 avaliações de hóspedes e 27 de proprietários. Cada painel tem a sua própria escala.</div>
+    <div class="legend" aria-hidden="true"><span><i class="sw" style="background:var(--blue)"></i>Hóspedes</span><span><i class="sw" style="background:var(--coral)"></i>Proprietários</span></div>
+    <div class="grid4" id="ch-aval"></div>
+  </div>
+  <p class="note">Desde outubro, só 1 das 10 reclamações de proprietários foi avaliada, e com nota 0. As outras ainda podem ser avaliadas. É mais um motivo para não pedir avaliação nos casos atritados e para resolver antes de responder. Pelo histórico, notas de 7 a 10 vêm de casos resolvidos em cerca de 3 dias, e notas de 0 a 3, de casos que levaram cerca de 10 dias.</p>
+</section>
+
+<!-- 8. O QUE FAZER -->
+<section>
+  <div class="sec-head">
+    <span class="num">07 · O que fazer agora</span>
+    <h2>Próximos passos</h2>
+  </div>
   <div class="box">
-    <ul>
-      <li>Publicar no Reclame Aqui a resposta das 3 reclamações antes da virada do mês. Com as 3 respondidas, a nota estimada volta para 7,1. Com só 2, continua em 7,0.</li>
-      <li>Em cada resposta, registrar a tratativa já feita e oferecer um canal direto, para reduzir o risco de avaliação negativa.</li>
-      <li>Depois de responder, dar ciente nos 3 avisos do Suporte Unificado.</li>
-    </ul>
+    <ol>
+      <li><strong>Responder as 5 reclamações o quanto antes.</strong> Cada uma vale cerca de 0,02. Com as 5, a nota exata vai a 7,24 e aparece 7,2.</li>
+      <li><strong>Resolver antes de responder.</strong> A resposta só registra o que já foi feito, no passado e de forma concreta. Explicar a regra sem oferecer nada é o que mais gera nota baixa.</li>
+      <li><strong>Não pedir avaliação em nenhum dos 5 casos.</strong> Todos têm atrito ou um pedido negado em parte. Uma negativa já tira a subida para 7,2.</li>
+      <li><strong>Destravar as duas decisões pendentes:</strong> o desconto de R$ 410 (manter, estornar parte ou estornar tudo) e a reposição dos 3 itens da proprietária do sofá.</li>
+      <li><strong>Olhar o anfitrião local.</strong> O cancelamento de última hora, a demora na reposição dos itens e o enxoval retido têm a mesma origem: decisão ou demora do anfitrião local. Vale levar o tema às franquias.</li>
+    </ol>
   </div>
-  <p class="note" style="margin-top:10px">Fontes: controle interno das reclamações do Reclame Aqui (consultado em 28 e 29/10/2026) e Slack (#respostas-reclame-aqui, #avisos-operação, #suporte-operação, #resumo-avisos-operação).</p>
+
+  <details class="box">
+    <summary>Ver todos os cenários em tabela</summary>
+    <div class="tbl" id="tbl-cen"></div>
+  </details>
+
+  <details class="box">
+    <summary>Como a nota é calculada</summary>
+    <p>A fórmula do Reclame Aqui usa os últimos 6 meses: <span class="meta">nota = (Índice de Resposta × 2 + Média das Avaliações × 3 + Índice de Solução × 3 + Novos Negócios × 2) ÷ 100</span>. Hoje os índices são: resposta 94,19%, média das avaliações 6,29, solução 71,70% e novos negócios 60,38%, sobre 86 reclamações. Nos cenários, uma avaliação negativa é nota 0, "não resolvido" e "não voltaria". Uma positiva é nota 10, "resolvido" e "voltaria".</p>
+  </details>
+
+  <p class="note">Fontes: controle interno das reclamações do Reclame Aqui (consultado em 10/11/2026) e threads do #respostas-reclame-aqui no Slack.</p>
 </section>
+
 </div>
+
+<script>
+(function(){
+const C={blue:'#0055FF',coral:'#FC6058',ink:'#080E32',muted:'#5A6283',grid:'#EEF1F7',line:'#DDE3F0',green:'#0F8A5F',greenS:'#E3F5EE',coralS:'#FFECEB',grayS:'#EEF1F7',coralInk:'#C23A33',surface:'#FFFFFF'};
+const NS='http://www.w3.org/2000/svg';
+const fmt=(v,d=2)=>v.toFixed(d).replace('.',',');
+const tip=document.getElementById('tip');
+function showTip(e,html){tip.innerHTML=html;tip.style.opacity=1;const x=(e.clientX||0)+14,y=(e.clientY||0)+14;tip.style.left=Math.min(x,window.innerWidth-280)+'px';tip.style.top=y+'px';}
+function hideTip(){tip.style.opacity=0;}
+function el(tag,attrs,parent){const n=document.createElementNS(NS,tag);for(const k in attrs)n.setAttribute(k,attrs[k]);if(parent)parent.appendChild(n);return n;}
+function txt(parent,x,y,s,attrs={}){const t=el('text',Object.assign({x,y},attrs),parent);t.textContent=s;return t;}
+function svg(host,w,h){const s=el('svg',{viewBox:`0 0 ${w} ${h}`,preserveAspectRatio:'xMidYMid meet'});host.appendChild(s);return s;}
+function hit(g,html){g.setAttribute('class','hit');g.setAttribute('tabindex','0');g.addEventListener('mousemove',e=>showTip(e,html));g.addEventListener('mouseleave',hideTip);g.addEventListener('focus',()=>{const r=g.getBoundingClientRect();showTip({clientX:r.right,clientY:r.top},html)});g.addEventListener('blur',hideTip);g.addEventListener('touchstart',e=>{const t=e.touches[0];showTip(t,html)},{passive:true});}
+const rounded=v=>Math.round(v*10+1e-9)/10;
+
+/* 01 escada */
+const cen=[
+ {n:'Hoje: nenhuma das 5 respondida',v:7.1287},
+ {n:'As 5 respondidas, ninguém avalia',v:7.2449,hl:true},
+ {n:'As 5 respondidas + 1 negativa',v:7.1472},
+ {n:'As 5 respondidas + 2 negativas',v:7.0530},
+ {n:'As 5 respondidas + 3 negativas',v:6.9622},
+ {n:'As 5 respondidas + 5 negativas',v:6.7900},
+ {n:'As 5 respondidas + 1 negativa e 1 positiva',v:7.1995},
+ {n:'As 5 respondidas + 2 positivas',v:7.3460},
+];
+(function(){
+ const host=document.getElementById('ch-escada');const W=860,L=300,R=70,top=28,row=38,H=top+cen.length*row+30;
+ const s=svg(host,W,H);const x0=6.7,x1=7.45;const X=v=>L+(v-x0)/(x1-x0)*(W-L-R);
+ const bands=[[x0,6.95,C.coralS],[6.95,7.05,C.coralS],[7.05,7.15,C.grayS],[7.15,x1,C.greenS]];
+ bands.forEach(b=>el('rect',{x:X(b[0]),y:top-8,width:X(b[1])-X(b[0]),height:cen.length*row,fill:b[2]},s));
+ [[6.95,'7,0'],[7.05,'7,1'],[7.15,'7,2']].forEach(([v,l])=>{el('line',{x1:X(v),x2:X(v),y1:top-8,y2:top-8+cen.length*row,stroke:'#fff','stroke-width':2},s);});
+ [[6.825,'6,9 ou menos'],[7.0,'7,0'],[7.1,'7,1'],[7.3,'7,2 ou mais']].forEach(([v,l])=>txt(s,X(v),top-14,(l.includes('ou')?'aparece ':'aparece ')+l,{'text-anchor':'middle','font-size':11}));
+ for(let t=6.8;t<=7.41;t+=0.1){txt(s,X(t),top+cen.length*row+14,fmt(t,1),{'text-anchor':'middle',class:'mono'});}
+ cen.forEach((c,i)=>{const y=top+i*row+row/2-4;
+   txt(s,L-14,y+4,c.n,{'text-anchor':'end',class:c.hl?'lbl':'lbl2','font-size':13});
+   el('line',{x1:L,x2:W-R,y1:y,y2:y,stroke:'#fff','stroke-width':1},s);
+   const g=el('g',{},s);const col=rounded(c.v)>=7.2?C.green:(rounded(c.v)<=7.0?C.coral:C.ink);
+   el('circle',{cx:X(c.v),cy:y,r:11,fill:'transparent'},g);
+   el('circle',{class:'mk',cx:X(c.v),cy:y,r:c.hl?8:6.5,fill:col,stroke:C.surface,'stroke-width':2},g);
+   txt(g,X(c.v)+14,y+4,fmt(c.v)+' → '+fmt(rounded(c.v),1),{class:'mono',fill:C.ink,'font-weight':c.hl?700:500});
+   hit(g,`<div>${c.n}</div><b>nota exata ${fmt(c.v,3)}</b><br>aparece no RA: <b>${fmt(rounded(c.v),1)}</b>`);
+ });
+})();
+
+/* 02 respostas */
+(function(){
+ const d=[7.1287,7.1520,7.1752,7.1985,7.2218,7.2449];
+ const host=document.getElementById('ch-resp');const W=860,H=260,L=56,R=30,T=20,B=40;const s=svg(host,W,H);
+ const y0=7.10,y1=7.26;const X=i=>L+i*(W-L-R)/5;const Y=v=>T+(1-(v-y0)/(y1-y0))*(H-T-B);
+ [7.10,7.15,7.20,7.25].forEach(v=>{el('line',{x1:L,x2:W-R,y1:Y(v),y2:Y(v),stroke:C.grid,'stroke-width':1},s);txt(s,L-8,Y(v)+4,fmt(v),{'text-anchor':'end',class:'mono'});});
+ el('rect',{x:L,y:Y(y1),width:W-L-R,height:Y(7.15)-Y(y1),fill:C.greenS,opacity:.6},s);
+ el('line',{x1:L,x2:W-R,y1:Y(7.15),y2:Y(7.15),stroke:C.green,'stroke-width':1.5,'stroke-dasharray':'5 4'},s);
+ txt(s,W-R,Y(7.15)-6,'acima daqui aparece 7,2',{'text-anchor':'end',fill:C.green,'font-weight':600});
+ let p='';d.forEach((v,i)=>p+=(i?'L':'M')+X(i)+' '+Y(v));el('path',{d:p,fill:'none',stroke:C.blue,'stroke-width':2,'stroke-linejoin':'round','stroke-linecap':'round'},s);
+ d.forEach((v,i)=>{txt(s,X(i),H-B+20,i+(i===1?' respondida':' respondidas'),{'text-anchor':'middle'});
+   const g=el('g',{},s);el('circle',{cx:X(i),cy:Y(v),r:14,fill:'transparent'},g);el('circle',{class:'mk',cx:X(i),cy:Y(v),r:5.5,fill:C.blue,stroke:C.surface,'stroke-width':2},g);
+   if(i===0||i===5||i===1)txt(g,X(i),Y(v)-12,fmt(v),{'text-anchor':'middle',class:'mono',fill:C.ink,'font-weight':600});
+   hit(g,`${i} de 5 respondidas<br><b>nota exata ${fmt(v,3)}</b><br>aparece no RA: <b>${fmt(rounded(v),1)}</b>`);});
+})();
+
+/* 03 funil */
+(function(){
+ const etapas=['Triagem','Tratativa','Decisão','Rascunho','Publicado'];
+ const casos=[['1. Reserva cancelada',3,'Hóspede','#0055FF'],['2. Desconto e realocação',1,'Hóspede','#0055FF'],['3. Devolução de R$ 410',2,'Proprietário','#FC6058'],['4. Reposição de itens',1,'Proprietária','#FC6058'],['5. Kit de enxoval',1,'Implantação','#FC6058']];
+ const host=document.getElementById('ch-funil');const W=860,L=210,R=20,T=26,row=34,H=T+casos.length*row+8;const s=svg(host,W,H);
+ const cw=(W-L-R)/5;
+ etapas.forEach((e,i)=>txt(s,L+cw*i+cw/2,T-10,e,{'text-anchor':'middle','font-weight':600}));
+ casos.forEach((c,r)=>{const y=T+r*row;txt(s,L-12,y+row/2+4,c[0],{'text-anchor':'end',class:'lbl2','font-size':13});
+   etapas.forEach((e,i)=>{const done=i<=c[1];el('rect',{x:L+cw*i+1,y:y+9,width:cw-2,height:14,rx:4,fill:done?c[3]:C.grid,opacity:i===c[1]?0.55:1},s);});
+   const g=el('g',{},s);el('rect',{x:L,y:y+4,width:cw*5,height:24,fill:'transparent'},g);
+   hit(g,`${c[0]} (${c[2]})<br>etapa atual: <b>${etapas[c[1]]}</b>`);});
+})();
+
+/* 04 temas */
+(function(){
+ const t=[['Imóvel diferente do anúncio ou em más condições',4,0],['Cancelamento, remarcação ou reembolso',4,0],['Danos, itens faltando e devolução na saída',0,3],['Calendário, diária mínima e preço',0,3],['Enxoval e entrada ou saída do contrato',0,2],['Desconto do hóspede cobrado no repasse',0,1],['Contato e atendimento',0,1],['Acesso no check-in',1,0],['Sem assunto informado',1,0]];
+ const host=document.getElementById('ch-temas');const W=860,L=330,R=40,T=6,row=32,H=T+t.length*row+24;const s=svg(host,W,H);
+ const mx=4;const X=v=>v/mx*(W-L-R);
+ [0,1,2,3,4].forEach(v=>{el('line',{x1:L+X(v),x2:L+X(v),y1:T,y2:T+t.length*row,stroke:C.grid,'stroke-width':1},s);txt(s,L+X(v),T+t.length*row+16,v,{'text-anchor':'middle',class:'mono'});});
+ t.forEach((d,i)=>{const y=T+i*row+row/2;txt(s,L-12,y+4,d[0],{'text-anchor':'end',class:'lbl2','font-size':13});
+   const g=el('g',{},s);let x=L;
+   if(d[1]){el('rect',{class:'mk',x,y:y-10,width:X(d[1])-(d[2]?1:0),height:20,rx:4,fill:C.blue},g);x+=X(d[1]);}
+   if(d[2]){el('rect',{class:'mk',x:x+(d[1]?1:0),y:y-10,width:X(d[2])-(d[1]?1:0),height:20,rx:4,fill:C.coral},g);x+=X(d[2]);}
+   txt(g,x+8,y+4,d[1]+d[2],{class:'mono',fill:C.ink,'font-weight':600});
+   el('rect',{x:L,y:y-14,width:W-L-R,height:28,fill:'transparent'},g);
+   hit(g,`${d[0]}<br>hóspedes: <b>${d[1]}</b> · proprietários: <b>${d[2]}</b>`);});
+})();
+
+/* 05 mês */
+const meses=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov*'];
+const H_=[18,10,21,10,10,5,13,14,11,6,4], P_=[1,1,6,8,6,5,4,3,2,6,4];
+(function(){
+ const host=document.getElementById('ch-mes');const W=860,H=280,L=36,R=10,T=20,B=34;const s=svg(host,W,H);
+ const mx=24;const band=(W-L-R)/11;const bw=Math.min(20,band/2-6);const Y=v=>T+(1-v/mx)*(H-T-B);
+ [0,5,10,15,20].forEach(v=>{el('line',{x1:L,x2:W-R,y1:Y(v),y2:Y(v),stroke:C.grid,'stroke-width':1},s);txt(s,L-8,Y(v)+4,v,{'text-anchor':'end',class:'mono'});});
+ const xm=L+band*9-1;el('line',{x1:xm,x2:xm,y1:T-8,y2:H-B,stroke:C.ink,'stroke-width':1.5},s);txt(s,xm+6,T,'page brand',{fill:C.ink,'font-weight':600});
+ function colbar(g,x,v,col){const h=Y(0)-Y(v);if(h<=0)return;const r=Math.min(4,h);el('path',{class:'mk',d:`M${x} ${Y(0)} L${x} ${Y(v)+r} Q${x} ${Y(v)} ${x+r} ${Y(v)} L${x+bw-r} ${Y(v)} Q${x+bw} ${Y(v)} ${x+bw} ${Y(v)+r} L${x+bw} ${Y(0)} Z`,fill:col},g);}
+ meses.forEach((m,i)=>{const cx=L+band*i+band/2;const g=el('g',{},s);
+   colbar(g,cx-bw-1,H_[i],C.blue);colbar(g,cx+1,P_[i],C.coral);
+   if(i>=9){txt(g,cx-bw/2-1,Y(H_[i])-6,H_[i],{'text-anchor':'middle',class:'mono',fill:C.ink});txt(g,cx+bw/2+1,Y(P_[i])-6,P_[i],{'text-anchor':'middle',class:'mono',fill:C.ink,'font-weight':700});}
+   txt(s,cx,H-B+18,m,{'text-anchor':'middle'});
+   el('rect',{x:L+band*i,y:T,width:band,height:H-T-B,fill:'transparent'},g);
+   hit(g,`${m==='nov*'?'novembro (até dia 10)':m}<br>hóspedes: <b>${H_[i]}</b> · proprietários: <b>${P_[i]}</b>`);});
+ txt(s,W-R,H-2,'* novembro até o dia 10',{'text-anchor':'end','font-size':11});
+})();
+(function(){
+ const host=document.getElementById('ch-pct');const W=860,H=220,L=40,R=10,T=20,B=30;const s=svg(host,W,H);
+ const band=(W-L-R)/11;const bw=Math.min(24,band-14);const Y=v=>T+(1-v/60)*(H-T-B);
+ [0,20,40,60].forEach(v=>{el('line',{x1:L,x2:W-R,y1:Y(v),y2:Y(v),stroke:C.grid,'stroke-width':1},s);txt(s,L-8,Y(v)+4,v+'%',{'text-anchor':'end',class:'mono'});});
+ meses.forEach((m,i)=>{const pct=Math.round(P_[i]/(P_[i]+H_[i])*100);const cx=L+band*i+band/2;const x=cx-bw/2;const g=el('g',{},s);
+   const h=Y(0)-Y(pct),r=Math.min(4,h);const col=i>=9?C.coral:'#9DB6F5';
+   el('path',{class:'mk',d:`M${x} ${Y(0)} L${x} ${Y(pct)+r} Q${x} ${Y(pct)} ${x+r} ${Y(pct)} L${x+bw-r} ${Y(pct)} Q${x+bw} ${Y(pct)} ${x+bw} ${Y(pct)+r} L${x+bw} ${Y(0)} Z`,fill:col},g);
+   txt(g,cx,Y(pct)-6,pct+'%',{'text-anchor':'middle',class:'mono',fill:C.ink,'font-weight':i>=9?700:500});
+   txt(s,cx,H-B+18,m,{'text-anchor':'middle'});
+   el('rect',{x:L+band*i,y:T,width:band,height:H-T-B,fill:'transparent'},g);
+   hit(g,`${m==='nov*'?'novembro (até dia 10)':m}: <b>${pct}%</b> de proprietários<br>${P_[i]} de ${P_[i]+H_[i]} reclamações`);});
+ el('line',{x1:L,x2:W-R,y1:Y(24),y2:Y(24),stroke:C.ink,'stroke-width':1.2,'stroke-dasharray':'5 4'},s);
+ txt(s,L+6,Y(24)+15,'média jan–set: 24%',{fill:C.ink,'font-weight':600});
+})();
+
+/* 06 avaliação */
+(function(){
+ const m=[['Nota média (0 a 10)',6.47,4.74,10,v=>fmt(v,1)],['Disseram que foi resolvido',76,52,100,v=>v+'%'],['Deram nota 10',32,11,100,v=>v+'%'],['Deram nota de 0 a 3',25,41,100,v=>v+'%']];
+ const host=document.getElementById('ch-aval');
+ m.forEach(d=>{const box=document.createElement('div');box.style.minWidth='0';const h=document.createElement('div');h.style.cssText='font-size:.88rem;font-weight:600;margin-bottom:6px;color:#2B3358';h.textContent=d[0];box.appendChild(h);host.appendChild(box);
+   const W=200,H=120,s=svg(box,W,H);const bw=Math.min(24,W/2-50);
+   [['Hóspedes',d[1],C.blue],['Proprietários',d[2],C.coral]].forEach((b,i)=>{const y=14+i*52;txt(s,0,y,b[0],{'font-size':12});
+     const w=b[1]/d[3]*(W-50);const g=el('g',{},s);
+     el('rect',{x:0,y:y+6,width:W-50,height:18,rx:4,fill:C.grid},g);
+     el('rect',{class:'mk',x:0,y:y+6,width:Math.max(4,w),height:18,rx:4,fill:b[2]},g);
+     txt(g,W-44,y+20,d[4](b[1]),{class:'mono',fill:C.ink,'font-weight':600,'font-size':13});
+     hit(g,`${d[0]}<br>${b[0]}: <b>${d[4](b[1])}</b>`);});
+ });
+})();
+
+/* tabela */
+(function(){
+ const rows=cen.map(c=>`<tr><td>${c.n}</td><td class="num">${fmt(c.v,2)}</td><td class="num">${fmt(rounded(c.v),1)}</td></tr>`).join('');
+ document.getElementById('tbl-cen').innerHTML=`<table><thead><tr><th>Cenário</th><th>Nota exata</th><th>Aparece no RA</th></tr></thead><tbody>${rows}</tbody></table>`;
+})();
+})();
+</script>
 </body>
 </html>
