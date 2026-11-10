@@ -98,12 +98,120 @@ details summary{cursor:pointer;color:var(--blue);font-weight:600}
 details[open] summary{margin-bottom:10px}
 a{color:var(--blue)}
 a:focus-visible,summary:focus-visible,.hit:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+/* abas */
+.tabs{display:flex;gap:4px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:4px;width:max-content;max-width:100%}
+.tabs button{font:600 .95rem var(--body);color:var(--muted);background:none;border:0;border-radius:9px;padding:9px 18px;cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--ink);color:#fff}
+.tabs button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.panel{display:grid;gap:44px}
+.panel[hidden]{display:none}
 </style>
 </head>
 <body>
 <div id="tip" role="status" aria-live="polite"></div>
 <div class="wrap">
 
+<nav class="tabs" role="tablist" aria-label="Versão do relatório">
+  <button role="tab" id="tab-resumo" aria-controls="p-resumo" aria-selected="true">Resumo</button>
+  <button role="tab" id="tab-completo" aria-controls="p-completo" aria-selected="false" tabindex="-1">Completo</button>
+</nav>
+<div class="panel" id="p-resumo" role="tabpanel" aria-labelledby="tab-resumo">
+<header>
+  <span class="eyebrow">Reclame Aqui · Seazone · atualizado em 10/11/2026</span>
+  <h1>Nota do Reclame Aqui em números</h1>
+  <p class="lead">Nota hoje: <strong>7,1</strong>. Com as 5 reclamações abertas respondidas, ela sobe para <strong>7,2</strong>. Uma avaliação negativa já segura a nota em 7,1, e três derrubam para 7,0.</p>
+</header>
+
+<section aria-label="Placar da nota">
+  <div class="grid3">
+    <div class="tile now"><span class="k">Hoje</span><span class="n">7,1</span><span class="x">cálculo exato 7,13</span><span class="l">81 de 86 reclamações respondidas.</span></div>
+    <div class="tile up"><span class="k">Melhor caminho</span><span class="n">7,2</span><span class="x">cálculo exato 7,24</span><span class="l">As 5 respondidas, sem avaliação negativa.</span></div>
+    <div class="tile down"><span class="k">Risco</span><span class="n">7,0</span><span class="x">cálculo exato 6,96</span><span class="l">As 5 respondidas e 3 avaliadas como negativas.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Cenários da nota</h2>
+  <div class="card">
+    <div class="ctitle">Nota exata em cada cenário e a nota que aparece no Reclame Aqui</div>
+    <div class="legend" aria-hidden="true">
+      <span><i class="sw" style="background:var(--coral-soft);border:1px solid var(--coral)"></i>aparece 7,0 ou menos</span>
+      <span><i class="sw" style="background:var(--gray-soft);border:1px solid #B8C0D6"></i>aparece 7,1</span>
+      <span><i class="sw" style="background:var(--green-soft);border:1px solid var(--green)"></i>aparece 7,2 ou mais</span>
+    </div>
+    <div class="ch-escada" role="img" aria-label="Cenários da nota: hoje 7,13; 5 respondidas 7,24; com 1 negativa 7,15; com 2 negativas 7,05; com 3 negativas 6,96; com 5 negativas 6,79; com 1 negativa e 1 positiva 7,20; com 2 positivas 7,35."></div>
+  </div>
+  <div class="tbl tbl-cen"></div>
+</section>
+
+<section>
+  <h2>Nota por número de reclamações respondidas</h2>
+  <div class="card">
+    <div class="ctitle">Nota exata sem nenhuma avaliação nova</div>
+    <div class="csub">A linha tracejada é o 7,15: a partir dela, aparece 7,2.</div>
+    <div class="ch-resp" role="img" aria-label="Nota exata: 0 respondidas 7,13; 1 respondida 7,15; 2 respondidas 7,18; 3 respondidas 7,20; 4 respondidas 7,22; 5 respondidas 7,24."></div>
+  </div>
+</section>
+
+<section>
+  <h2>As 5 reclamações em aberto</h2>
+  <div class="tbl">
+  <table>
+    <thead><tr><th>Reclamação</th><th>Público</th><th>Aberta</th><th>Etapa</th><th>Risco</th><th>Falta</th></tr></thead>
+    <tbody>
+      <tr><td>1. Reserva cancelada horas antes do check-in</td><td>Hóspede</td><td class="num">04/11</td><td>Rascunho</td><td><span class="pill p-mid">Médio</span></td><td>Publicar a resposta</td></tr>
+      <tr><td>2. Desconto injusto e sem realocação</td><td>Hóspede</td><td class="num">08/11</td><td>Tratativa</td><td><span class="pill p-bad">Alto</span></td><td>Contato com a cliente e resumo</td></tr>
+      <tr><td>3. Devolução de R$ 410 do repasse</td><td>Proprietário</td><td class="num">09/11</td><td>Decisão</td><td><span class="pill p-bad">Alto</span></td><td>Manter, estornar parte ou estornar tudo</td></tr>
+      <tr><td>4. Reposição de itens levados por hóspedes</td><td>Proprietária</td><td class="num">10/11</td><td>Tratativa</td><td><span class="pill p-bad">Muito alto</span></td><td>Posição da franquia</td></tr>
+      <tr><td>5. Kit de enxoval não entregue</td><td>Implantação</td><td class="num">10/11</td><td>Tratativa</td><td><span class="pill p-mid">Médio</span></td><td>Confirmar a entrega de 11/11</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="card">
+    <div class="ctitle">Onde cada caso está no processo</div>
+    <div class="ch-funil" role="img" aria-label="Caso 1 em rascunho; casos 2, 4 e 5 em tratativa; caso 3 em decisão."></div>
+  </div>
+  <p class="note">Nenhum dos 5 casos é para pedir avaliação.</p>
+</section>
+
+<section>
+  <h2>Assuntos das reclamações, de 01/10 a 10/11</h2>
+  <div class="card">
+    <div class="legend" aria-hidden="true"><span><i class="sw" style="background:var(--blue)"></i>Hóspedes</span><span><i class="sw" style="background:var(--coral)"></i>Proprietários e implantação</span></div>
+    <div class="ch-temas" role="img" aria-label="Reclamações por assunto de 01/10 a 10/11. Hóspedes: 4 de imóvel diferente do anúncio ou em más condições, 4 de cancelamento, remarcação ou reembolso, 1 de acesso no check-in e 1 sem assunto informado. Proprietários e implantação: 3 de danos, itens faltando e devolução na saída, 3 de calendário, diária mínima e preço, 2 de enxoval e entrada ou saída do contrato, 1 de desconto do hóspede cobrado no repasse e 1 de contato e atendimento."></div>
+  </div>
+</section>
+
+<section>
+  <h2>Hóspedes e proprietários</h2>
+  <div class="grid4">
+    <div class="tile"><span class="k">Jan a set</span><span class="n">24%</span><span class="l">das reclamações eram de proprietários</span></div>
+    <div class="tile down"><span class="k">Out a 10/11</span><span class="n">50%</span><span class="l">das reclamações são de proprietários</span></div>
+    <div class="tile"><span class="k">Proprietários por mês</span><span class="n">4 → 6</span><span class="l">média de jan a set contra outubro</span></div>
+    <div class="tile"><span class="k">Hóspedes por mês</span><span class="n">12 → 6</span><span class="l">média de jan a set contra outubro</span></div>
+  </div>
+  <div class="card">
+    <div class="ctitle">Reclamações por mês</div>
+    <div class="csub">Novembro vai só até o dia 10. A linha vertical marca a entrada da page brand, em 01/10.</div>
+    <div class="legend" aria-hidden="true"><span><i class="sw" style="background:var(--blue)"></i>Hóspedes</span><span><i class="sw" style="background:var(--coral)"></i>Proprietários</span></div>
+    <div class="ch-mes" role="img" aria-label="Reclamações por mês. Jan: 18 hóspedes, 1 proprietário. Fev: 10 e 1. Mar: 21 e 6. Abr: 10 e 8. Mai: 10 e 6. Jun: 5 e 5. Jul: 13 e 4. Ago: 14 e 3. Set: 11 e 2. Out: 6 e 6. Nov até dia 10: 4 e 4."></div>
+  </div>
+  <div class="card">
+    <div class="ctitle">% das reclamações que são de proprietários, por mês</div>
+    <div class="csub">A linha tracejada é a média de janeiro a setembro (24%).</div>
+    <div class="ch-pct" role="img" aria-label="Percentual de proprietários por mês: jan 5%, fev 9%, mar 22%, abr 44%, mai 38%, jun 50%, jul 24%, ago 18%, set 15%, out 50%, nov até dia 10 50%."></div>
+  </div>
+  <div class="card">
+    <div class="ctitle">Como cada público avalia depois da resposta (2026)</div>
+    <div class="csub">80 avaliações de hóspedes e 27 de proprietários.</div>
+    <div class="legend" aria-hidden="true"><span><i class="sw" style="background:var(--blue)"></i>Hóspedes</span><span><i class="sw" style="background:var(--coral)"></i>Proprietários</span></div>
+    <div class="grid4 ch-aval"></div>
+  </div>
+  <p class="note">Fontes: controle interno das reclamações do Reclame Aqui (10/11/2026) e threads do #respostas-reclame-aqui. A explicação de cada número está na aba Completo.</p>
+</section>
+
+</div>
+<div class="panel" id="p-completo" role="tabpanel" aria-labelledby="tab-completo" hidden>
 <header>
   <span class="eyebrow">Reclame Aqui · Seazone · atualizado em 10/11/2026</span>
   <h1>5 reclamações em aberto decidem se a nota sobe para 7,2 ou cai para 7,0</h1>
@@ -134,7 +242,7 @@ a:focus-visible,summary:focus-visible,.hit:focus-visible{outline:2px solid var(-
       <span><i class="sw" style="background:var(--gray-soft);border:1px solid #B8C0D6"></i>aparece 7,1 (igual a hoje)</span>
       <span><i class="sw" style="background:var(--green-soft);border:1px solid var(--green)"></i>aparece 7,2 ou mais</span>
     </div>
-    <div id="ch-escada" role="img" aria-label="Gráfico de pontos com 8 cenários da nota. Hoje 7,13. Cinco respondidas sem avaliação 7,24. Com 1 negativa 7,15. Com 2 negativas 7,05. Com 3 negativas 6,96. Com 5 negativas 6,79. Com 1 negativa e 1 positiva 7,20. Com 2 positivas 7,35."></div>
+    <div class="ch-escada" role="img" aria-label="Gráfico de pontos com 8 cenários da nota. Hoje 7,13. Cinco respondidas sem avaliação 7,24. Com 1 negativa 7,15. Com 2 negativas 7,05. Com 3 negativas 6,96. Com 5 negativas 6,79. Com 1 negativa e 1 positiva 7,20. Com 2 positivas 7,35."></div>
   </div>
   <div class="grid2">
     <div class="callout"><strong>Por que responder já ajuda.</strong><p>Um quinto da nota é o Índice de Resposta. Hoje ele está em 94% porque 5 das 86 reclamações dos últimos 6 meses estão sem resposta. Respondendo as 5, ele vai a 100% e a nota sobe de 7,13 para 7,24, mesmo sem nenhum cliente avaliar.</p></div>
@@ -152,7 +260,7 @@ a:focus-visible,summary:focus-visible,.hit:focus-visible{outline:2px solid var(-
   <div class="card">
     <div class="ctitle">Nota exata conforme o número de reclamações respondidas, sem nenhuma avaliação nova</div>
     <div class="csub">A linha tracejada em verde é o 7,15: acima dela o Reclame Aqui mostra 7,2.</div>
-    <div id="ch-resp" role="img" aria-label="Nota exata por número de respostas: 0 respondidas 7,13; 1 respondida 7,15; 2 respondidas 7,18; 3 respondidas 7,20; 4 respondidas 7,22; 5 respondidas 7,24."></div>
+    <div class="ch-resp" role="img" aria-label="Nota exata por número de respostas: 0 respondidas 7,13; 1 respondida 7,15; 2 respondidas 7,18; 3 respondidas 7,20; 4 respondidas 7,22; 5 respondidas 7,24."></div>
   </div>
   <p class="note">A conta usa a janela de 6 meses de hoje (10/05 a 10/11/2026). A janela anda todo dia, então reclamações antigas saem do cálculo e o número pode variar um pouco. Cada reclamação nova que entrar e ficar sem resposta tira cerca de 0,02. Há ainda 28 reclamações já respondidas que nunca foram avaliadas (9 de proprietários). O cliente pode avaliar qualquer uma delas a qualquer momento, e isso também mexe na nota.</p>
 </section>
@@ -168,7 +276,7 @@ a:focus-visible,summary:focus-visible,.hit:focus-visible{outline:2px solid var(-
   <div class="card">
     <div class="ctitle">Onde cada caso está no processo</div>
     <div class="csub">Etapas: triagem, tratativa com o cliente, decisão interna, rascunho da resposta e publicação no Reclame Aqui.</div>
-    <div id="ch-funil" role="img" aria-label="Etapa de cada caso: reserva cancelada está em rascunho; desconto e realocação em tratativa; R$ 410 em decisão interna; reposição de itens em tratativa; enxoval em tratativa com entrega marcada para 11/11."></div>
+    <div class="ch-funil" role="img" aria-label="Etapa de cada caso: reserva cancelada está em rascunho; desconto e realocação em tratativa; R$ 410 em decisão interna; reposição de itens em tratativa; enxoval em tratativa com entrega marcada para 11/11."></div>
   </div>
 
   <div class="cases">
@@ -247,7 +355,7 @@ a:focus-visible,summary:focus-visible,.hit:focus-visible{outline:2px solid var(-
     <div class="ctitle">Reclamações por assunto, de 01/10 a 10/11/2026</div>
     <div class="csub">Cada barra soma hóspedes e proprietários. Os 5 casos abertos estão incluídos.</div>
     <div class="legend" aria-hidden="true"><span><i class="sw" style="background:var(--blue)"></i>Hóspedes</span><span><i class="sw" style="background:var(--coral)"></i>Proprietários e implantação</span></div>
-    <div id="ch-temas" role="img" aria-label="Reclamações por assunto desde 01/10: imóvel diferente do anunciado ou em más condições, 4 de hóspedes; cancelamento, remarcação ou reembolso, 4 de hóspedes; danos, itens e devolução na saída do contrato, 3 de proprietários; enxoval e entrada ou saída do contrato, 2 de proprietários; calendário, diárias e preço, 3 de proprietários; descontos no repasse, 1 de proprietário; contato e atendimento, 1 de proprietário; acesso no check-in, 1 de hóspede; sem título, 1 de hóspede."></div>
+    <div class="ch-temas" role="img" aria-label="Reclamações por assunto desde 01/10: imóvel diferente do anunciado ou em más condições, 4 de hóspedes; cancelamento, remarcação ou reembolso, 4 de hóspedes; danos, itens e devolução na saída do contrato, 3 de proprietários; enxoval e entrada ou saída do contrato, 2 de proprietários; calendário, diárias e preço, 3 de proprietários; descontos no repasse, 1 de proprietário; contato e atendimento, 1 de proprietário; acesso no check-in, 1 de hóspede; sem título, 1 de hóspede."></div>
   </div>
   <div class="grid2">
     <div class="box"><p><strong>Hóspedes.</strong> Duas queixas dominam. A primeira é o imóvel não estar como no anúncio ou em boas condições: obra sem aviso, imóvel inferior, sujeira, mofo, itens quebrados. A segunda é cancelamento, remarcação ou reembolso, incluindo cancelamentos feitos pelo próprio anfitrião local.</p></div>
@@ -275,13 +383,13 @@ a:focus-visible,summary:focus-visible,.hit:focus-visible{outline:2px solid var(-
     <div class="ctitle">Reclamações por mês, hóspedes e proprietários</div>
     <div class="csub">Novembro vai só até o dia 10. A linha vertical marca a entrada da page brand, em 01/10.</div>
     <div class="legend" aria-hidden="true"><span><i class="sw" style="background:var(--blue)"></i>Hóspedes</span><span><i class="sw" style="background:var(--coral)"></i>Proprietários</span></div>
-    <div id="ch-mes" role="img" aria-label="Reclamações por mês. Jan: 18 hóspedes, 1 proprietário. Fev: 10 e 1. Mar: 21 e 6. Abr: 10 e 8. Mai: 10 e 6. Jun: 5 e 5. Jul: 13 e 4. Ago: 14 e 3. Set: 11 e 2. Out: 6 e 6. Nov até dia 10: 4 e 4."></div>
+    <div class="ch-mes" role="img" aria-label="Reclamações por mês. Jan: 18 hóspedes, 1 proprietário. Fev: 10 e 1. Mar: 21 e 6. Abr: 10 e 8. Mai: 10 e 6. Jun: 5 e 5. Jul: 13 e 4. Ago: 14 e 3. Set: 11 e 2. Out: 6 e 6. Nov até dia 10: 4 e 4."></div>
   </div>
 
   <div class="card">
     <div class="ctitle">% das reclamações que são de proprietários, por mês</div>
     <div class="csub">A linha tracejada é a média de janeiro a setembro (24%).</div>
-    <div id="ch-pct" role="img" aria-label="Percentual de proprietários por mês: jan 5%, fev 9%, mar 22%, abr 44%, mai 38%, jun 50%, jul 24%, ago 18%, set 15%, out 50%, nov até dia 10 50%."></div>
+    <div class="ch-pct" role="img" aria-label="Percentual de proprietários por mês: jan 5%, fev 9%, mar 22%, abr 44%, mai 38%, jun 50%, jul 24%, ago 18%, set 15%, out 50%, nov até dia 10 50%."></div>
   </div>
 
   <p class="note">Novembro só tem 10 dias e já tem 4 reclamações de proprietários, o mesmo número de hóspedes. Nesse ritmo, o mês fecharia com cerca de 12 de proprietários, o dobro de outubro. Se a proporção de janeiro a setembro tivesse continuado, a chance de 10 ou mais das 20 reclamações serem de proprietários seria de cerca de 1%. Então é difícil ser acaso. Ainda são só 6 semanas, e junho também teve metade de proprietários, num mês com só 10 reclamações. Os números de janeiro a setembro foram revisados com o controle de hoje, por isso diferem um pouco da versão de 28/10.</p>
@@ -298,7 +406,7 @@ a:focus-visible,summary:focus-visible,.hit:focus-visible{outline:2px solid var(-
     <div class="ctitle">Como cada público avalia depois da resposta (2026)</div>
     <div class="csub">80 avaliações de hóspedes e 27 de proprietários. Cada painel tem a sua própria escala.</div>
     <div class="legend" aria-hidden="true"><span><i class="sw" style="background:var(--blue)"></i>Hóspedes</span><span><i class="sw" style="background:var(--coral)"></i>Proprietários</span></div>
-    <div class="grid4" id="ch-aval"></div>
+    <div class="grid4 ch-aval"></div>
   </div>
   <p class="note">Desde outubro, só 1 das 10 reclamações de proprietários foi avaliada, e com nota 0. As outras ainda podem ser avaliadas. É mais um motivo para não pedir avaliação nos casos atritados e para resolver antes de responder. Pelo histórico, notas de 7 a 10 vêm de casos resolvidos em cerca de 3 dias, e notas de 0 a 3, de casos que levaram cerca de 10 dias.</p>
 </section>
@@ -321,7 +429,7 @@ a:focus-visible,summary:focus-visible,.hit:focus-visible{outline:2px solid var(-
 
   <details class="box">
     <summary>Ver todos os cenários em tabela</summary>
-    <div class="tbl" id="tbl-cen"></div>
+    <div class="tbl tbl-cen"></div>
   </details>
 
   <details class="box">
@@ -332,6 +440,7 @@ a:focus-visible,summary:focus-visible,.hit:focus-visible{outline:2px solid var(-
   <p class="note">Fontes: controle interno das reclamações do Reclame Aqui (consultado em 10/11/2026) e threads do #respostas-reclame-aqui no Slack.</p>
 </section>
 
+</div>
 </div>
 
 <script>
@@ -359,8 +468,8 @@ const cen=[
  {n:'As 5 respondidas + 1 negativa e 1 positiva',v:7.1995},
  {n:'As 5 respondidas + 2 positivas',v:7.3460},
 ];
-(function(){
- const host=document.getElementById('ch-escada');const W=860,L=300,R=70,top=28,row=38,H=top+cen.length*row+30;
+document.querySelectorAll('.ch-escada').forEach(function(host){
+ const W=860,L=300,R=70,top=28,row=38,H=top+cen.length*row+30;
  const s=svg(host,W,H);const x0=6.7,x1=7.45;const X=v=>L+(v-x0)/(x1-x0)*(W-L-R);
  const bands=[[x0,6.95,C.coralS],[6.95,7.05,C.coralS],[7.05,7.15,C.grayS],[7.15,x1,C.greenS]];
  bands.forEach(b=>el('rect',{x:X(b[0]),y:top-8,width:X(b[1])-X(b[0]),height:cen.length*row,fill:b[2]},s));
@@ -376,12 +485,12 @@ const cen=[
    txt(g,X(c.v)+14,y+4,fmt(c.v)+' → '+fmt(rounded(c.v),1),{class:'mono',fill:C.ink,'font-weight':c.hl?700:500});
    hit(g,`<div>${c.n}</div><b>nota exata ${fmt(c.v,3)}</b><br>aparece no RA: <b>${fmt(rounded(c.v),1)}</b>`);
  });
-})();
+});
 
 /* 02 respostas */
-(function(){
+document.querySelectorAll('.ch-resp').forEach(function(host){
  const d=[7.1287,7.1520,7.1752,7.1985,7.2218,7.2449];
- const host=document.getElementById('ch-resp');const W=860,H=260,L=56,R=30,T=20,B=40;const s=svg(host,W,H);
+ const W=860,H=260,L=56,R=30,T=20,B=40;const s=svg(host,W,H);
  const y0=7.10,y1=7.26;const X=i=>L+i*(W-L-R)/5;const Y=v=>T+(1-(v-y0)/(y1-y0))*(H-T-B);
  [7.10,7.15,7.20,7.25].forEach(v=>{el('line',{x1:L,x2:W-R,y1:Y(v),y2:Y(v),stroke:C.grid,'stroke-width':1},s);txt(s,L-8,Y(v)+4,fmt(v),{'text-anchor':'end',class:'mono'});});
  el('rect',{x:L,y:Y(y1),width:W-L-R,height:Y(7.15)-Y(y1),fill:C.greenS,opacity:.6},s);
@@ -392,25 +501,25 @@ const cen=[
    const g=el('g',{},s);el('circle',{cx:X(i),cy:Y(v),r:14,fill:'transparent'},g);el('circle',{class:'mk',cx:X(i),cy:Y(v),r:5.5,fill:C.blue,stroke:C.surface,'stroke-width':2},g);
    if(i===0||i===5||i===1)txt(g,X(i),Y(v)-12,fmt(v),{'text-anchor':'middle',class:'mono',fill:C.ink,'font-weight':600});
    hit(g,`${i} de 5 respondidas<br><b>nota exata ${fmt(v,3)}</b><br>aparece no RA: <b>${fmt(rounded(v),1)}</b>`);});
-})();
+});
 
 /* 03 funil */
-(function(){
+document.querySelectorAll('.ch-funil').forEach(function(host){
  const etapas=['Triagem','Tratativa','Decisão','Rascunho','Publicado'];
  const casos=[['1. Reserva cancelada',3,'Hóspede','#0055FF'],['2. Desconto e realocação',1,'Hóspede','#0055FF'],['3. Devolução de R$ 410',2,'Proprietário','#FC6058'],['4. Reposição de itens',1,'Proprietária','#FC6058'],['5. Kit de enxoval',1,'Implantação','#FC6058']];
- const host=document.getElementById('ch-funil');const W=860,L=210,R=20,T=26,row=34,H=T+casos.length*row+8;const s=svg(host,W,H);
+ const W=860,L=210,R=20,T=26,row=34,H=T+casos.length*row+8;const s=svg(host,W,H);
  const cw=(W-L-R)/5;
  etapas.forEach((e,i)=>txt(s,L+cw*i+cw/2,T-10,e,{'text-anchor':'middle','font-weight':600}));
  casos.forEach((c,r)=>{const y=T+r*row;txt(s,L-12,y+row/2+4,c[0],{'text-anchor':'end',class:'lbl2','font-size':13});
    etapas.forEach((e,i)=>{const done=i<=c[1];el('rect',{x:L+cw*i+1,y:y+9,width:cw-2,height:14,rx:4,fill:done?c[3]:C.grid,opacity:i===c[1]?0.55:1},s);});
    const g=el('g',{},s);el('rect',{x:L,y:y+4,width:cw*5,height:24,fill:'transparent'},g);
    hit(g,`${c[0]} (${c[2]})<br>etapa atual: <b>${etapas[c[1]]}</b>`);});
-})();
+});
 
 /* 04 temas */
-(function(){
+document.querySelectorAll('.ch-temas').forEach(function(host){
  const t=[['Imóvel diferente do anúncio ou em más condições',4,0],['Cancelamento, remarcação ou reembolso',4,0],['Danos, itens faltando e devolução na saída',0,3],['Calendário, diária mínima e preço',0,3],['Enxoval e entrada ou saída do contrato',0,2],['Desconto do hóspede cobrado no repasse',0,1],['Contato e atendimento',0,1],['Acesso no check-in',1,0],['Sem assunto informado',1,0]];
- const host=document.getElementById('ch-temas');const W=860,L=330,R=40,T=6,row=32,H=T+t.length*row+24;const s=svg(host,W,H);
+ const W=860,L=330,R=40,T=6,row=32,H=T+t.length*row+24;const s=svg(host,W,H);
  const mx=4;const X=v=>v/mx*(W-L-R);
  [0,1,2,3,4].forEach(v=>{el('line',{x1:L+X(v),x2:L+X(v),y1:T,y2:T+t.length*row,stroke:C.grid,'stroke-width':1},s);txt(s,L+X(v),T+t.length*row+16,v,{'text-anchor':'middle',class:'mono'});});
  t.forEach((d,i)=>{const y=T+i*row+row/2;txt(s,L-12,y+4,d[0],{'text-anchor':'end',class:'lbl2','font-size':13});
@@ -420,13 +529,13 @@ const cen=[
    txt(g,x+8,y+4,d[1]+d[2],{class:'mono',fill:C.ink,'font-weight':600});
    el('rect',{x:L,y:y-14,width:W-L-R,height:28,fill:'transparent'},g);
    hit(g,`${d[0]}<br>hóspedes: <b>${d[1]}</b> · proprietários: <b>${d[2]}</b>`);});
-})();
+});
 
 /* 05 mês */
 const meses=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov*'];
 const H_=[18,10,21,10,10,5,13,14,11,6,4], P_=[1,1,6,8,6,5,4,3,2,6,4];
-(function(){
- const host=document.getElementById('ch-mes');const W=860,H=280,L=36,R=10,T=20,B=34;const s=svg(host,W,H);
+document.querySelectorAll('.ch-mes').forEach(function(host){
+ const W=860,H=280,L=36,R=10,T=20,B=34;const s=svg(host,W,H);
  const mx=24;const band=(W-L-R)/11;const bw=Math.min(20,band/2-6);const Y=v=>T+(1-v/mx)*(H-T-B);
  [0,5,10,15,20].forEach(v=>{el('line',{x1:L,x2:W-R,y1:Y(v),y2:Y(v),stroke:C.grid,'stroke-width':1},s);txt(s,L-8,Y(v)+4,v,{'text-anchor':'end',class:'mono'});});
  const xm=L+band*9-1;el('line',{x1:xm,x2:xm,y1:T-8,y2:H-B,stroke:C.ink,'stroke-width':1.5},s);txt(s,xm+6,T,'page brand',{fill:C.ink,'font-weight':600});
@@ -438,9 +547,9 @@ const H_=[18,10,21,10,10,5,13,14,11,6,4], P_=[1,1,6,8,6,5,4,3,2,6,4];
    el('rect',{x:L+band*i,y:T,width:band,height:H-T-B,fill:'transparent'},g);
    hit(g,`${m==='nov*'?'novembro (até dia 10)':m}<br>hóspedes: <b>${H_[i]}</b> · proprietários: <b>${P_[i]}</b>`);});
  txt(s,W-R,H-2,'* novembro até o dia 10',{'text-anchor':'end','font-size':11});
-})();
-(function(){
- const host=document.getElementById('ch-pct');const W=860,H=220,L=40,R=10,T=20,B=30;const s=svg(host,W,H);
+});
+document.querySelectorAll('.ch-pct').forEach(function(host){
+ const W=860,H=220,L=40,R=10,T=20,B=30;const s=svg(host,W,H);
  const band=(W-L-R)/11;const bw=Math.min(24,band-14);const Y=v=>T+(1-v/60)*(H-T-B);
  [0,20,40,60].forEach(v=>{el('line',{x1:L,x2:W-R,y1:Y(v),y2:Y(v),stroke:C.grid,'stroke-width':1},s);txt(s,L-8,Y(v)+4,v+'%',{'text-anchor':'end',class:'mono'});});
  meses.forEach((m,i)=>{const pct=Math.round(P_[i]/(P_[i]+H_[i])*100);const cx=L+band*i+band/2;const x=cx-bw/2;const g=el('g',{},s);
@@ -452,12 +561,12 @@ const H_=[18,10,21,10,10,5,13,14,11,6,4], P_=[1,1,6,8,6,5,4,3,2,6,4];
    hit(g,`${m==='nov*'?'novembro (até dia 10)':m}: <b>${pct}%</b> de proprietários<br>${P_[i]} de ${P_[i]+H_[i]} reclamações`);});
  el('line',{x1:L,x2:W-R,y1:Y(24),y2:Y(24),stroke:C.ink,'stroke-width':1.2,'stroke-dasharray':'5 4'},s);
  txt(s,L+6,Y(24)+15,'média jan–set: 24%',{fill:C.ink,'font-weight':600});
-})();
+});
 
 /* 06 avaliação */
-(function(){
+document.querySelectorAll('.ch-aval').forEach(function(host){
  const m=[['Nota média (0 a 10)',6.47,4.74,10,v=>fmt(v,1)],['Disseram que foi resolvido',76,52,100,v=>v+'%'],['Deram nota 10',32,11,100,v=>v+'%'],['Deram nota de 0 a 3',25,41,100,v=>v+'%']];
- const host=document.getElementById('ch-aval');
+ 
  m.forEach(d=>{const box=document.createElement('div');box.style.minWidth='0';const h=document.createElement('div');h.style.cssText='font-size:.88rem;font-weight:600;margin-bottom:6px;color:#2B3358';h.textContent=d[0];box.appendChild(h);host.appendChild(box);
    const W=200,H=120,s=svg(box,W,H);const bw=Math.min(24,W/2-50);
    [['Hóspedes',d[1],C.blue],['Proprietários',d[2],C.coral]].forEach((b,i)=>{const y=14+i*52;txt(s,0,y,b[0],{'font-size':12});
@@ -467,13 +576,22 @@ const H_=[18,10,21,10,10,5,13,14,11,6,4], P_=[1,1,6,8,6,5,4,3,2,6,4];
      txt(g,W-44,y+20,d[4](b[1]),{class:'mono',fill:C.ink,'font-weight':600,'font-size':13});
      hit(g,`${d[0]}<br>${b[0]}: <b>${d[4](b[1])}</b>`);});
  });
-})();
+});
 
 /* tabela */
 (function(){
  const rows=cen.map(c=>`<tr><td>${c.n}</td><td class="num">${fmt(c.v,2)}</td><td class="num">${fmt(rounded(c.v),1)}</td></tr>`).join('');
- document.getElementById('tbl-cen').innerHTML=`<table><thead><tr><th>Cenário</th><th>Nota exata</th><th>Aparece no RA</th></tr></thead><tbody>${rows}</tbody></table>`;
+ document.querySelectorAll('.tbl-cen').forEach(h=>h.innerHTML=`<table><thead><tr><th>Cenário</th><th>Nota exata</th><th>Aparece no RA</th></tr></thead><tbody>${rows}</tbody></table>`);
 })();
+})();
+/* abas */
+(function(){
+ const tabs=[...document.querySelectorAll('[role=tab]')];
+ function sel(id,push){tabs.forEach(t=>{const on=t.id===id;t.setAttribute('aria-selected',on);t.tabIndex=on?0:-1;document.getElementById(t.getAttribute('aria-controls')).hidden=!on;});
+   if(push){try{history.replaceState(null,'',id==='tab-completo'?'#completo':location.pathname)}catch(e){}}}
+ tabs.forEach((t,i)=>{t.addEventListener('click',()=>{sel(t.id,true);window.scrollTo(0,0)});
+   t.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){const n=tabs[(i+(e.key==='ArrowRight'?1:tabs.length-1))%tabs.length];n.focus();sel(n.id,true);}});});
+ if(location.hash==='#completo')sel('tab-completo',false);
 })();
 </script>
 </body>
